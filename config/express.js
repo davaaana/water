@@ -131,7 +131,7 @@ module.exports = function(db) {
 
 	// Assume 404 since no middleware responded
 	app.use(function(req, res) {
-        res.redirect('/under_construction');
+        res.redirect('/not_found');
 
 	});
 

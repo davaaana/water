@@ -77,9 +77,10 @@ module.exports.getCSSAssets = function() {
 
 module.exports.convertToJson = function (data) {
     try {
-        return JSON.parse(data);
+        data = JSON.parse(data);
     }
     catch (e) {
-        return false;
+        data = data;
     }
+    return data;
 };
