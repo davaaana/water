@@ -8,6 +8,7 @@ module.exports = function(app) {
 
     //user DML
     app.route('/user').post(user.signin);
+
     //app.route('/user').get(user.signin);
     app.route('/user').delete(user.signin);
     app.route('/user').put(user.signin);
