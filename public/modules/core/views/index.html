@@ -1,0 +1,23 @@
+hello worlddsads
+<div class="container">
+<div>
+    <button data-ng-click="getUsers();">{{title}}</button>
+</div>
+<div data-ng-init="getUsers();">
+    <table>
+        <thead>
+        <tr>
+            <td>??????? ???</td>
+            <td>password</td>
+            <td>email</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="u in users">
+            <td>{{u.username}}</td>
+            <td>{{u.fullname}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
