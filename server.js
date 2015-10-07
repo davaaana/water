@@ -15,11 +15,15 @@ var init = require('./config/init')(),
  * Please note that the order of loading is important.
  */
 
-var conString = "postgres://water:water@123@localhost/water";
+var conString = "postgres://water:water@123@10.0.0.129/water";
 var client = new pg.Client(conString);
 
 client.connect(function(err, result) {
-   if (err) process.exit(-1);
+   if (err) {
+       console.log(result);
+       console.log(err);
+       process.exit(-1);
+   }
 });
 
 // Init the express application
