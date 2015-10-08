@@ -17,8 +17,11 @@ angular.module('user').controller('LoginController', ['$rootScope', '$scope','$h
             }).success(function (response) {
                 Authentication.user = response;
                 window.location.href = '#!/admin';
-            }).error(function (response) {
-                $scope.error = response.message;
+            }).error(function (response,status) {
+                if(status == 401){
+                    $scope.error = '???????????? ??? ????? ???? ?? ????? ?????!';
+                }
+
             });
         };
     }
