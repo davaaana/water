@@ -93,3 +93,17 @@ exports.hasAuthorization = function(roles) {
         });
     };
 };
+
+/**
+ * ?????? ???
+ * @return String
+ */
+exports.hasAuthorizationAdmin = function (req, res, next) {
+    if (req.user.role_id != roles.user_roles.admin) {
+        return res.status(403).send({
+            message: '???? ?????? ??? ???????? ?????'
+        });
+    }
+    next();
+};
+
