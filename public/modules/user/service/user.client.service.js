@@ -1,24 +1,17 @@
-angular.module('user').factory('coreUserSrv', function ($http) {
+angular.module('user').factory('UserAuthSrv', function ($http,Authentication) {
     return {
-        getAllUser: function (params) {
-            var promise = $http.get('/user').then(function (response) {
-                return response.data;
+        signin: function (params) {
+            $http({
+                method: "post",
+                url: '/signin',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: $.param({username: params.username, password: params.password})
+            }).success(function (response) {
+                Authentication.user = response;
+                window.location.href = '#!/admin';
+            }).error(function (response) {
+                $scope.error = response.message;
             });
-            return promise;
-        },
-        createUser: function (params) {
-            var promise = $http.post('/user', {
-                username: params.username,
-                password: params.password,
-                firstname: params.firstname,
-                phone: params.phone,
-                email: params.email,
-                lastname: params.lastname
-            }).then(function (response) {
-                return response.data;
-            });
-
-            return promise;
         }
     };
 });
