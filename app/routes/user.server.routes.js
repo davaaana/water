@@ -1,13 +1,14 @@
 'use strict';
 
 module.exports = function(app) {
-    // Root routing
+    // root routing
     var user = require('../../app/controllers/user.server.controller');
 
     app.route('/signin').post(user.signin);
 
-    //user DML
+    //user dml
     app.route('/user').post(user.signin);
+    app.route('/roles').get(user.getroles);
 
     //app.route('/user').get(user.signin);
     app.route('/user').delete(user.signin);
@@ -15,6 +16,7 @@ module.exports = function(app) {
 
     app.route('/user/:username').put(user.signin);
     app.route('/users').get(user.signin);
+    app.route('/logout').get(user.signout);
 
 
 };
