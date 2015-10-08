@@ -1,14 +1,15 @@
-<div class="logo"></div>
+
 <div class="wrapper">
     <div class="container">
         <div>
             <h1>Ус хангамж, ариун цэврийн байгууламжийн мэдээллийн сан</h1>
+            <div class="error">{{error}}</div>
             <form data-ng-submit="signin()">
                             <input type="username" name="username" data-ng-model="username" placeholder="Хэрэглэгчийн нэр" data-ng-model="username">
                             <input type="password" name="password" data-ng-model="password" placeholder="Нууц үг" data-ng-model="password">
                             <button type="submit" class="login-button">Нэвтрэх</button>
             </form>
-            {{error}}
+
         </div>
     </div>
     <ul class="bg-bubbles">

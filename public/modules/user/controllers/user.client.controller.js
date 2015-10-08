@@ -7,19 +7,25 @@ angular.module('user').controller('LoginController', ['$rootScope', '$scope','$h
         $scope.password = '';
 
         $scope.signin = function () {
-            $('form').fadeOut(500);
-            $('.wrapper').addClass('form-success');
+
             $http({
                 method: "post",
                 url: '/signin',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data: $.param({username: $scope.username, password: $scope.password})
             }).success(function (response) {
-                Authentication.user = response;
-                window.location.href = '#!/admin';
+                $('form').fadeOut(500);
+                $('.wrapper').addClass('form-success');
+                setTimeout(function() {
+                    Authentication.user = response;
+                    window.location.href = '#!/admin';
+                }, 2000);
+
             }).error(function (response,status) {
                 if(status == 401){
                     $scope.error = 'Хэрэглэгчийн нэр нууц үг буруу байна!';
+                    $scope.username = '';
+                    $scope.password = '';
                 }
 
             });
