@@ -1,29 +1,25 @@
-
-<div class="container">
-    <div>
-        <form data-ng-submit="signin()">
-            <table>
-                <thead>
-                <tr>
-                    <td>username</td>
-                    <td>password</td>
-                    <td></td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <input type="username" name="username" data-ng-model="username">
-                    </td>
-                    <td>
-                        <input type="password" name="password" data-ng-model="password">
-                    </td>
-                    <td>
-                        <button type="submit">signin</button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </form>
+<div class="wrapper">
+    <div class="container">
+        <div>
+            <h1>Ус хангамж, ариун цэврийн байгууламжийн мэдээллийн сан</h1>
+            <form data-ng-submit="signin()">
+                            <input type="username" name="username" data-ng-model="username" placeholder="Хэрэглэгчийн нэр" data-ng-model="username">
+                            <input type="password" name="password" data-ng-model="password" placeholder="Нууц үг" data-ng-model="password">
+                            <button type="submit" class="login-button">Нэвтрэх</button>
+            </form>
+            {{error}}
+        </div>
     </div>
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </div>

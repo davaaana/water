@@ -22,7 +22,8 @@ module.exports = {
                 'public/lib/ng-ckeditor/ng-ckeditor.css',
                 'public/lib/angular-ui-grid/ui-grid.css',
                 'public/lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css',
-                'public/lib/bootstrap3-dialog/dist/css/bootstrap-dialog.min.css'
+                'public/lib/bootstrap3-dialog/dist/css/bootstrap-dialog.min.css',
+                'public/modules/style/admin.css',
             ],
             js: [
                 'public/vendors/js/jquery.min.js',
