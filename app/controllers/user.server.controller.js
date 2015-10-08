@@ -101,9 +101,22 @@ exports.hasAuthorization = function(roles) {
 exports.hasAuthorizationAdmin = function (req, res, next) {
     if (req.user.role_id != roles.user_roles.admin) {
         return res.status(403).send({
-            message: '???? ?????? ??? ???????? ?????'
+            message: 'Таны хандах эрх хүрэхгүй байна'
         });
     }
     next();
+};
+
+exports.getRoles = function(req, res) {
+    req.pg.query("SELECT * FROM role", function (err, result) {
+        if(err){
+            return res.status(400).json({message:'???? ???? ????? ??????'});
+        }else{
+            if(result.rows.length == 0){
+                return res.status(201).json({message:'???????? ??????? ???? ?????'});
+            }
+            return res.status(200).json(result.rows);
+        }
+    });
 };
 
