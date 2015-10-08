@@ -230,7 +230,6 @@ form button:hover {
     }
 }
 
-.logo{
-    background: url("../../img/bhby-logo.png") no-repeat;
-    height: 150px;
+.error{
+    color:red;
 }
