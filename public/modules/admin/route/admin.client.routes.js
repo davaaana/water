@@ -13,8 +13,7 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider', '$locati
 		}).
         state('admin.dashboard', {
             url: '',
-            templateUrl: 'modules/admin/views/dashboard.html',
-            controller: 'DashboardController'
+            templateUrl: 'modules/admin/views/dashboard.html'
         }).
         state('admin.user', {
             url: '/user',

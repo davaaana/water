@@ -19,6 +19,13 @@ angular.module('admin').factory('UserSrv', function ($http) {
             });
 
             return promise;
+        },
+        getRoles: function () {
+            var promise = $http.get('/roles').then(function (response) {
+                return response.data;
+            });
+
+            return promise.data;
         }
     };
 });
