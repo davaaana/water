@@ -229,3 +229,8 @@ form button:hover {
         transform: translateY(-700px) rotate(600deg);
     }
 }
+
+.logo{
+    background: url("../../img/bhby-logo.png") no-repeat;
+    height: 150px;
+}

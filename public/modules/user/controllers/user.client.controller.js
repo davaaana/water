@@ -19,7 +19,7 @@ angular.module('user').controller('LoginController', ['$rootScope', '$scope','$h
                 window.location.href = '#!/admin';
             }).error(function (response,status) {
                 if(status == 401){
-                    $scope.error = '???????????? ??? ????? ???? ?? ????? ?????!';
+                    $scope.error = 'Хэрэглэгчийн нэр нууц үг буруу байна!';
                 }
 
             });
