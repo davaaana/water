@@ -38,6 +38,15 @@ angular.module('admin').factory('AdminUserSrv', function ($http) {
                 return response;
             });
             return promise;
+        },
+        deleteUser: function (id) {
+            var promise = $http({
+                method: 'DELETE',
+                url: ' /user/'+id
+            }).success(function (err,response) {
+                return response;
+            });
+            return promise;
         }
     };
 });

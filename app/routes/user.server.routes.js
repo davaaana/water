@@ -14,7 +14,7 @@ module.exports = function(app) {
     app.route('/roles').get(user.getRoles);
 
     //app.route('/user').get(user.signin);
-    app.route('/user').delete(u,a,user.signin);
+    app.route('/user/:id').delete(u,a,user.deleteUser);
     app.route('/updateUser').post(u,a,user.updateUser);
     app.route('/users').get(user.getUsers);
     app.route('/logout').get(user.signout);
