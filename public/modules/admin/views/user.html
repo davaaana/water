@@ -1,12 +1,67 @@
-<div data-ng-include="'/modules/admin/views/template/header.html'"></div>
-<div class="col-md-4">
-    <form>
-        <input type="text" class="form-control" data-ng-model="username" placeholder="Нэвтрэх нэр">
-        <input type="password" class="form-control" data-ng-model="password" placeholder="Нууц үг">
-        <input type="password" class="form-control" data-ng-model="re_password" placeholder="Нууц үг давт">
-        <input type="text" class="form-control" data-ng-model="fullname" placeholder="Харагдах нэр">
-        <input type="text" class="form-control" data-ng-model="phone" placeholder="Утас">
-        <input type="text" class="form-control" data-ng-model="email" placeholder="И-майл">
-        <select class="form-control" data-ng-model="role_id" ng-options="role.id as role.name for role in roles"></select>
-    </form>
+<div class="row">
+    <div class="left-col">
+
+        <div class="left-1">
+            <div class="logo"></div>
+            <div class="logo-desc">Ус хангамж, ариун цэврийн байгууламжийн мэдээллийн сан</div>
+        </div>
+
+        <div  class="left-2">
+            <div data-ng-include="'/modules/admin/views/template/header.html'"></div>
+        </div>
+    </div>
+    <div class="right-col" data-ng-init="getUsers()">
+        <table style="color:#000000" border="1">
+            <thead>
+            <tr>
+                <td>Нэвтрэх нэр</td>
+                <td>Нэр</td>
+                <td>Утас</td>
+                <td>И-майл</td>
+                <td>Эрх</td>
+                <td>Засах</td>
+                <td>Устгах</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="user in users">
+                <td>{{user.username}}</td>
+                <td>{{user.fullname}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.role_id}}</td>
+                <td><button data-ng-click="updateModalUser(user)">Засах</button></td>
+                <td><button data-ng-click="deleteUser(user.username)">Устгах</button></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="col-md-4">
+
+        </div>
+    </div>
 </div>
+
+<div id="user" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 style="color: #000000">{{title_edit}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="text" class="form-control" name="username" data-ng-model="user.username" placeholder="Нэвтрэх нэр">
+                    <input type="password" class="form-control" name="password" data-ng-model="user.password" placeholder="Нууц үг">
+                    <input type="password" class="form-control" name="re_password" data-ng-model="user.re_password" placeholder="Нууц үг давт">
+                    <input type="text" class="form-control" name="fullname" data-ng-model="user.fullname" placeholder="Харагдах нэр">
+                    <input type="text" class="form-control" name="phone" data-ng-model="user.phone" placeholder="Утас">
+                    <input type="text" class="form-control" name="email" data-ng-model="user.email" placeholder="И-майл">
+                    <select class="form-control" name="role_id" data-ng-model="user.role_id" ng-options="role.id as role.name for role in roles"></select>
+                    <input type="file" accept="image/*" file-upload>
+                    <button data-ng-click="updateUser()">Засах</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
