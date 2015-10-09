@@ -17,7 +17,8 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider', '$locati
         }).
         state('admin.user', {
             url: '/user',
-            templateUrl: 'modules/admin/views/user.html'
+            templateUrl: 'modules/admin/views/user.html',
+            controller:'UserController'
         }).
             state('admin.content', {
                 url: '/content',
