@@ -11,6 +11,7 @@
         </div>
     </div>
     <div class="right-col" data-ng-init="getUsers()">
+        <button data-ng-click="createModalUser()">Нэмэх</button>
         <table style="color:#000000" border="1">
             <thead>
             <tr>
@@ -58,7 +59,8 @@
                     <input type="text" class="form-control" name="email" data-ng-model="user.email" placeholder="И-майл">
                     <select class="form-control" name="role_id" data-ng-model="user.role_id" ng-options="role.id as role.name for role in roles"></select>
                     <input type="file" accept="image/*" file-upload>
-                    <button data-ng-click="updateUser()">Засах</button>
+                    <button data-ng-click="updateUser()" data-ng-show="updateBtn">Засах</button>
+                    <button data-ng-click="createUser()" data-ng-hide="updateBtn">Нэмэх</button>
                 </form>
             </div>
         </div>

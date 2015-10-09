@@ -20,10 +20,15 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider', '$locati
             templateUrl: 'modules/admin/views/user.html',
             controller:'UserController'
         }).
-            state('admin.content', {
-                url: '/content',
-                templateUrl: 'modules/admin/views/content.html',
-                controller:'ContentController'
-            });
+        state('admin.content', {
+            url: '/content',
+            templateUrl: 'modules/admin/views/content.html',
+            controller:'ContentController'
+        }).
+        state('admin.category', {
+            url: '/category',
+            templateUrl: 'modules/admin/views/category.html',
+            controller:'CategoryController'
+        });
 	}
 ]);
