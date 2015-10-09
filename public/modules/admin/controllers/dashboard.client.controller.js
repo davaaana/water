@@ -7,6 +7,8 @@ angular.module('admin').controller('DashboardController', ['$rootScope', '$scope
         $http.get('/roles').success(function (response) {
             $scope.roles = response;
         });
+
+        $scope.authUser = window.user;
     }
 
 ]);
