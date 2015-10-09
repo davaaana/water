@@ -58,6 +58,7 @@ module.exports = {
                 'public/lib/angular-smart-table/dist/smart-table.min.js',
                 'public/vendors/js/jsPDF/jspdf.min.js',
                 'public/vendors/js/jsPDF/jspdf.plugin.addhtml.js',
+                'public/lib/text-editor/text-editor.js',
                 'public/vendors/js/html2canvas.js'
             ]
         },

@@ -1,0 +1,42 @@
+<div data-ng-include="'/modules/admin/views/template/header.html'"></div>
+
+<div>
+    <button data-ng-click="add()">Нэмэх</button>
+    <button data-ng-click="update()">Засах</button>
+    <table>
+        <thead>
+            <tr>
+                <td>title</td>
+                <td>content</td>
+                <td>image</td>
+                <td>category</td>
+                <td>created date</td>
+            </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="content in contents">
+            <td>{{content.title}}</td>
+            <td>{{content.content}}</td>
+            <td>{{content.image}}</td>
+            <td>{{content.category}}</td>
+            <td>{{content.created_date}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div id="content" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 style="color: #000000">{{title_edit}}</h4>
+            </div>
+            <div class="modal-body">
+                <input class="form-control" style="color: #000000" type="text" data-ng-mode="title" placeholder="Гарчиг">
+                <div style="color: #000000;width: 400px;height: 200px" text-angular ng-model="htmlVariable"></div>
+            </div>
+        </div>
+    </div>
+</div>

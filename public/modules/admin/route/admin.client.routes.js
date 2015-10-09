@@ -18,6 +18,11 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider', '$locati
         state('admin.user', {
             url: '/user',
             templateUrl: 'modules/admin/views/user.html'
-        });
+        }).
+            state('admin.content', {
+                url: '/content',
+                templateUrl: 'modules/admin/views/content.html',
+                controller:'ContentController'
+            });
 	}
 ]);

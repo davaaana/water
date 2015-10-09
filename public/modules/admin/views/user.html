@@ -1,1 +1,12 @@
-welcome to user ??????
+<div data-ng-include="'/modules/admin/views/template/header.html'"></div>
+<div class="col-md-4">
+    <form>
+        <input type="text" class="form-control" data-ng-model="username" placeholder="Нэвтрэх нэр">
+        <input type="password" class="form-control" data-ng-model="password" placeholder="Нууц үг">
+        <input type="password" class="form-control" data-ng-model="re_password" placeholder="Нууц үг давт">
+        <input type="text" class="form-control" data-ng-model="fullname" placeholder="Харагдах нэр">
+        <input type="text" class="form-control" data-ng-model="phone" placeholder="Утас">
+        <input type="text" class="form-control" data-ng-model="email" placeholder="И-майл">
+        <select class="form-control" data-ng-model="role_id" ng-options="role.id as role.name for role in roles"></select>
+    </form>
+</div>
