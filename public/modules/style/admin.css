@@ -365,6 +365,7 @@ table td {
 .menu-title {
     font-weight: bold;
     padding-left: 8px;
+    padding-top: 5px;
 }
 
 .logout {
@@ -394,11 +395,11 @@ table td {
     padding-left: 5px;
     font-weight: 700;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 .left-1 {
-    height: 95px;
+    height: 120px;
     border-bottom: 1px solid white;
 }
 
