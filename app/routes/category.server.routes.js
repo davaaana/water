@@ -8,7 +8,7 @@ module.exports = function(app) {
     var u = user.requiresLogin;
     var a = user.hasAuthorizationAdmin;
 
-    app.route('/categories').get(category.getCategory);
+    app.route('/categories').get(category.getCategories);
     app.route('/category/:id').get(category.getCategory);
 
     //content DML
