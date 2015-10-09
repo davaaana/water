@@ -7,7 +7,10 @@ var _ = require('underscore'),
     passport = require('passport');
 
 var fs = require('fs');
+var multer = require('multer');
 var request = require('request');
+var roles = require('../../app/models/config.js');
+var config = require('../../config/config.js');
 
 /**
  * Signin after passport authentication
@@ -110,13 +113,122 @@ exports.hasAuthorizationAdmin = function (req, res, next) {
 exports.getRoles = function(req, res) {
     req.pg.query("SELECT * FROM role", function (err, result) {
         if(err){
-            return res.status(400).json({message:'???? ???? ????? ??????'});
+            return res.status(400).json({message:'Бааз дээр алдаа гарлаа'});
         }else{
             if(result.rows.length == 0){
-                return res.status(201).json({message:'???????? ??????? ???? ?????'});
+                return res.status(201).json({message:'Харуулах өгөгдөл алга байна'});
             }
             return res.status(200).json(result.rows);
         }
     });
 };
 
+exports.createUser =  [
+    multer({
+    dest: './public/img/',
+    limits: {
+        fieldNameSize: 1000,
+        files: 1,
+        fields: 5
+    },
+    rename: function (fieldname, filename) {
+        return filename + Date.now();
+    },
+    onFileUploadStart: function (file) {
+        if (file.mimetype !== 'image/jpg' && file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png') {
+            return false;
+        }
+    },
+    onFileUploadData: function () {
+    },
+    onFileUploadComplete: function () {
+    }
+}),function(req, res) {
+        req.pg.query("SELECT * FROM \"user\" WHERE username = $1",[req.body.username], function (err, rst) {
+            if (err) {
+                return res.status(400).json({message:'Бааз дээр алдаа гарлаа'});
+            }
+            if (rst.rows.length > 0) {
+                var fs = require('fs');
+                fs.exists('./public' + rst.rows[0].image, function (exists) {
+                    if (exists) {
+                        fs.unlink('./public' + rst.rows[0].image);
+                    }
+                });
+            } else {
+                return res.status(400).json({message:'Хэрэглэгчийн мэдээлэл бааз дээр алга байна'});
+            }
+        })
+    var imgPath = '/img/' + req.files.data.name;
+    var params = [req.body.username,req.body.password,req.body.fullname,req.body.phone,req.body.email,req.body.role_id,imgPath];
+    req.pg.query("INSERT INTO \"user\"(username, password, fullname, phone, email, role_id,image) VALUES ($1, $2, $3, $4, $5, $6,$7);",params, function (err, result) {
+        if(err){
+            return res.status(400).json({message:'Бааз дээр алдаа гарлаа'});
+        }else{
+            return res.status(200).json({message:'Амжилттай хадгаллаа'});
+        }
+    });
+}];
+
+exports.updateUser =  [
+    multer({
+        dest: './public/img/',
+        limits: {
+            fieldNameSize: 1000,
+            files: 1,
+            fields: 5
+        },
+        rename: function (fieldname, filename) {
+            return filename + Date.now();
+        },
+        onFileUploadStart: function (file) {
+            if (file.mimetype !== 'image/jpg' && file.mimetype !== 'image/jpeg' && file.mimetype !== 'image/png') {
+                return false;
+            }
+        },
+        onFileUploadData: function () {
+        },
+        onFileUploadComplete: function () {
+        }
+    }),function(req, res) {
+        var user = config.convertToJson(req.body.user);
+        console.log(req.body.user);
+        req.pg.query("SELECT * FROM \"user\" WHERE username = $1",[user.username], function (err, rst) {
+            if (err) {
+                return res.status(400).json({message:'Бааз дээр алдаа гарлаа'});
+            }
+            if (rst.rows.length > 0) {
+                var fs = require('fs');
+                fs.exists('./public' + rst.rows[0].image, function (exists) {
+                    if (exists) {
+                        fs.unlink('./public' + rst.rows[0].image);
+                    }
+                });
+            } else {
+                return res.status(400).json({message:'Хэрэглэгчийн мэдээлэл бааз дээр алга байна'});
+            }
+        })
+        console.log(req.files.file.name);
+        var imgPath = '/img/' + req.files.file.name;
+        var params = [user.password,user.fullname,user.phone,user.email || '',user.role_id || 1,imgPath,user.username,];
+        req.pg.query("UPDATE \"user\" SET password = $1, fullname = $2, phone = $3, email = $4, role_id = $5, image = $6 WHERE username = $7",params, function (err, result) {
+            if(err){
+                return res.status(400).json({message:'Бааз дээр алдаа гарлаа'});
+            }else{
+                return res.status(200).json({message:'Амжилттай хадгаллаа'});
+            }
+        });
+    }];
+
+exports.getUsers = function(req, res) {
+    req.pg.query("SELECT * FROM \"user\"", function (err, result) {
+        if(err){
+            return res.status(400).json({message:'Бааз дээр алдаа гарлаа'});
+        }else{
+            if(result.rows.length == 0){
+                return res.status(201).json({message:'Харуулах өгөгдөл алга байна'});
+            }
+            return res.status(200).json(result.rows);
+        }
+    });
+};
