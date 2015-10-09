@@ -3,7 +3,7 @@
         <div class="title">
             Бүлэгийн тохиргоо
         </div>
-        <button data-ng-click="createModalCategory()" class="add">Бүлэг нэмэх</button>
+        <button data-ng-click="createModalCategory()" class="btn btn-primary btn-sm add">Бүлэг нэмэх</button>
     </div>
 
     <div class="div-border">
@@ -21,10 +21,10 @@
                 <td class="center-td">{{category.id}}</td>
                 <td>{{category.name}}</td>
                 <td class="center-td">
-                    <button data-ng-click="updateModalCategory(category)">Засах</button>
+                    <button data-ng-click="updateModalCategory(category)"  class="btn btn-default btn-sm">Засах</button>
                 </td>
                 <td class="center-td">
-                    <button data-ng-click="deleteCategory(category.id)">Устгах</button>
+                    <button data-ng-click="deleteCategory(category.id)"  class="btn btn-danger btn-sm">Устгах</button>
                 </td>
             </tr>
             </tbody>
@@ -46,8 +46,8 @@
                 <form>
                     <input type="text" data-ng-model="category.name" style="border: 1px solid gray; color:gray">
                     <center>
-                    <button data-ng-click="updateCategory()" data-ng-show="updateBtn">Засах</button>
-                    <button data-ng-click="createCategory()" data-ng-hide="updateBtn">Нэмэх</button>
+                    <button data-ng-click="updateCategory()" data-ng-show="updateBtn" class="btn btn-primary">Засах</button>
+                    <button data-ng-click="createCategory()" data-ng-hide="updateBtn" class="btn btn-primary">Нэмэх</button>
                     </center>
                 </form>
             </div>

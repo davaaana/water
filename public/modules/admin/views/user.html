@@ -4,7 +4,7 @@
         <div class="title">
             Хэрэглэгчийн тохиргоо
         </div>
-        <button data-ng-click="createModalUser()" class="add">Хэрэглэгч нэмэх</button>
+        <button data-ng-click="createModalUser()" class="add btn btn-primary btn-sm">Хэрэглэгч нэмэх</button>
     </div>
 
     <div class="div-border">
@@ -28,10 +28,10 @@
                 <td class="center-td">{{user.email}}</td>
                 <td class="center-td">{{user.role_id}}</td>
                 <td class="center-td">
-                    <button data-ng-click="updateModalUser(user)">Засах</button>
+                    <button data-ng-click="updateModalUser(user)" class="btn btn-default btn-sm">Засах</button>
                 </td>
                 <td class="center-td">
-                    <button data-ng-click="deleteUser(user.username)">Устгах</button>
+                    <button data-ng-click="deleteUser(user.username)"  class="btn btn-danger btn-sm">Устгах</button>
                 </td>
             </tr>
             </tbody>
@@ -66,8 +66,8 @@
                             ng-options="role.id as role.name for role in roles"></select>
                     <center>
                         <input type="file" accept="image/*" file-upload  style="border: 1px solid gray; color:gray">
-                        <button data-ng-click="updateUser()" data-ng-show="updateBtn">Засах</button>
-                        <button data-ng-click="createUser()" data-ng-hide="updateBtn">Нэмэх</button>
+                        <button data-ng-click="updateUser()" data-ng-show="updateBtn" class="btn btn-primary">Засах</button>
+                        <button data-ng-click="createUser()" data-ng-hide="updateBtn" class="btn btn-primary">Нэмэх</button>
                     </center>
                 </form>
             </div>
