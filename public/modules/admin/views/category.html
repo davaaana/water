@@ -1,28 +1,39 @@
+<div data-ng-init="getCategory()">
+    <div style="height: 50px">
+        <div class="title">
+            Бүлэгийн тохиргоо
+        </div>
+        <button data-ng-click="createModalCategory()" class="add">Бүлэг нэмэх</button>
+    </div>
 
-    <div class="right-col" data-ng-init="getCategory()">
-        <button data-ng-click="createModalCategory()">Нэмэх</button>
-        <table style="color:#000000" border="1">
+    <div class="div-border">
+        <table class="table-list">
             <thead>
-            <tr>
-                <td>Id</td>
-                <td>Нэр</td>
-                <td>Засах</td>
-                <td>Устгах</td>
+            <tr style="background: #006bb7">
+                <td style="width: 30px;" class="center-td-title">#</td>
+                <td  class="center-td-title" style="text-align: left">Бүлгийн нэр</td>
+                <td style="width: 80px;" class="center-td-title">Засах</td>
+                <td style="width: 80px;" class="center-td-title">Устгах</td>
             </tr>
             </thead>
             <tbody>
             <tr data-ng-repeat="category in categories">
-                <td>{{category.id}}</td>
+                <td class="center-td">{{category.id}}</td>
                 <td>{{category.name}}</td>
-                <td><button data-ng-click="updateModalCategory(category)">Засах</button></td>
-                <td><button data-ng-click="deleteCategory(category.id)">Устгах</button></td>
+                <td class="center-td">
+                    <button data-ng-click="updateModalCategory(category)">Засах</button>
+                </td>
+                <td class="center-td">
+                    <button data-ng-click="deleteCategory(category.id)">Устгах</button>
+                </td>
             </tr>
             </tbody>
         </table>
-        <div class="col-md-4">
-
-        </div>
     </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
 
 <div id="category" class="modal fade">
     <div class="modal-dialog">
@@ -33,9 +44,11 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <input type="text" data-ng-model="category.name">
+                    <input type="text" data-ng-model="category.name" style="border: 1px solid gray; color:gray">
+                    <center>
                     <button data-ng-click="updateCategory()" data-ng-show="updateBtn">Засах</button>
                     <button data-ng-click="createCategory()" data-ng-hide="updateBtn">Нэмэх</button>
+                    </center>
                 </form>
             </div>
         </div>
