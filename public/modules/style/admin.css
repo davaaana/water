@@ -1,21 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-weight: 300;
 }
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
     color: white;
     font-weight: 300;
 }
+
 body ::-webkit-input-placeholder {
     /* WebKit browsers */
     font-family: 'Source Sans Pro', sans-serif;
     color: white;
     font-weight: 300;
 }
+
 body :-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     font-family: 'Source Sans Pro', sans-serif;
@@ -23,6 +27,7 @@ body :-moz-placeholder {
     opacity: 1;
     font-weight: 300;
 }
+
 body ::-moz-placeholder {
     /* Mozilla Firefox 19+ */
     font-family: 'Source Sans Pro', sans-serif;
@@ -30,12 +35,14 @@ body ::-moz-placeholder {
     opacity: 1;
     font-weight: 300;
 }
+
 body :-ms-input-placeholder {
     /* Internet Explorer 10+ */
     font-family: 'Source Sans Pro', sans-serif;
     color: white;
     font-weight: 300;
 }
+
 .wrapper {
     background: #0172a8;
     background: -webkit-linear-gradient(top left, #0172a8 0%, #8fcae6 100%);
@@ -48,19 +55,22 @@ body :-ms-input-placeholder {
     margin-top: -200px;
     overflow: hidden;
 }
-.wrapper.form-success .container h1 {
+
+.wrapper.form-success .container-login h1 {
     -webkit-transform: translateY(85px);
     -ms-transform: translateY(85px);
     transform: translateY(85px);
 }
-.container {
+
+.container-login {
     max-width: 600px;
     margin: 0 auto;
     padding: 36px 0;
     height: 400px;
     text-align: center;
 }
-.container h1 {
+
+.container-login h1 {
     font-size: 40px;
     -webkit-transition-duration: 1s;
     transition-duration: 1s;
@@ -68,11 +78,13 @@ body :-ms-input-placeholder {
     transition-timing-function: ease-in-put;
     font-weight: 200;
 }
+
 form {
     padding: 20px 0;
     position: relative;
     z-index: 2;
 }
+
 form input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -92,14 +104,17 @@ form input {
     transition-duration: 0.25s;
     font-weight: 300;
 }
+
 form input:hover {
     background-color: rgba(255, 255, 255, 0.4);
 }
+
 form input:focus {
     background-color: white;
     width: 300px;
     color: #0172a8;
 }
+
 form button {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -116,9 +131,11 @@ form button {
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
 }
+
 form button:hover {
     background-color: #f5f7f9;
 }
+
 .bg-bubbles {
     position: absolute;
     top: 0;
@@ -127,6 +144,7 @@ form button:hover {
     height: 100%;
     z-index: 1;
 }
+
 .bg-bubbles li {
     position: absolute;
     list-style: none;
@@ -140,9 +158,11 @@ form button:hover {
     -webkit-transition-timing-function: linear;
     transition-timing-function: linear;
 }
+
 .bg-bubbles li:nth-child(1) {
     left: 10%;
 }
+
 .bg-bubbles li:nth-child(2) {
     left: 20%;
     width: 80px;
@@ -152,11 +172,13 @@ form button:hover {
     -webkit-animation-duration: 17s;
     animation-duration: 17s;
 }
+
 .bg-bubbles li:nth-child(3) {
     left: 25%;
     -webkit-animation-delay: 4s;
     animation-delay: 4s;
 }
+
 .bg-bubbles li:nth-child(4) {
     left: 40%;
     width: 60px;
@@ -165,9 +187,11 @@ form button:hover {
     animation-duration: 22s;
     background-color: rgba(255, 255, 255, 0.25);
 }
+
 .bg-bubbles li:nth-child(5) {
     left: 70%;
 }
+
 .bg-bubbles li:nth-child(6) {
     left: 80%;
     width: 120px;
@@ -176,6 +200,7 @@ form button:hover {
     animation-delay: 3s;
     background-color: rgba(255, 255, 255, 0.2);
 }
+
 .bg-bubbles li:nth-child(7) {
     left: 32%;
     width: 160px;
@@ -183,6 +208,7 @@ form button:hover {
     -webkit-animation-delay: 7s;
     animation-delay: 7s;
 }
+
 .bg-bubbles li:nth-child(8) {
     left: 55%;
     width: 20px;
@@ -192,6 +218,7 @@ form button:hover {
     -webkit-animation-duration: 40s;
     animation-duration: 40s;
 }
+
 .bg-bubbles li:nth-child(9) {
     left: 25%;
     width: 10px;
@@ -202,6 +229,7 @@ form button:hover {
     animation-duration: 40s;
     background-color: rgba(255, 255, 255, 0.3);
 }
+
 .bg-bubbles li:nth-child(10) {
     left: 90%;
     width: 160px;
@@ -209,6 +237,7 @@ form button:hover {
     -webkit-animation-delay: 11s;
     animation-delay: 11s;
 }
+
 @-webkit-keyframes square {
     0% {
         -webkit-transform: translateY(0);
@@ -219,6 +248,7 @@ form button:hover {
         transform: translateY(-700px) rotate(600deg);
     }
 }
+
 @keyframes square {
     0% {
         -webkit-transform: translateY(0);
@@ -230,6 +260,76 @@ form button:hover {
     }
 }
 
-.error{
-    color:red;
+.error {
+    color: red;
 }
+
+/*------------------------------------------admin page design-------------------------------------*/
+
+.container {
+    width: 100%;
+}
+
+.left-col {
+    background-color: #006bb7;
+    width: 230px;
+    padding: 0;
+    position: absolute;
+    height: 100%;
+    padding: 5px;
+}
+
+.right-col {
+    background-color: #F7F7F7 !important;
+    margin-left: 230px;
+    height: 100%;
+}
+
+.logo{
+    background: url('../../img/bhby-logo.png') no-repeat;
+    height: 93px;
+    width: 93px;
+    float: left;
+
+}
+
+.logo-desc{
+    float: right;
+    width: 120px;
+    padding-left: 5px;
+    font-weight: 700;
+    padding-top: 15px;
+}
+
+.left-1{
+    height: 115px;
+}
+
+#menu a{
+    color: white;
+}
+.home{
+    background: url('../../img/home.png') no-repeat;
+    height: 24px;
+    width: 24px;
+}
+
+.users{
+    background: url('../../img/users.png') no-repeat;
+    height: 24px;
+    width: 24px;
+}
+
+.category{
+    background: url('../../img/category.png') no-repeat;
+    height: 24px;
+    width: 24px;
+}
+
+.content{
+    background: url('../../img/content.png') no-repeat;
+    height: 24px;
+    width: 24px;
+}
+
+
