@@ -17,9 +17,13 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
         }
 
         $scope.updateUser = function () {
-            console.log($scope.image)
-            UserSrv.updateUser($scope.user,$scope.files).then(function (et) {
-                console.log(et);
+
+            UserSrv.updateUser($scope.user,$scope.files).then(function (response) {
+                if(response.status == 200){
+                    alert(response.data.message);
+                }else{
+                    alert(response.data.message);
+                }
             });
         }
 
