@@ -33,8 +33,8 @@ angular.module('admin').factory('AdminUserSrv', function ($http) {
                     formData.append('file', image[0]);
                     return formData;
                 }
-            }).then(function (response) {
-                return response.data;
+            }).success(function (err,response) {
+                return response;
             });
             return promise;
         }
