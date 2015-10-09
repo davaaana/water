@@ -11,14 +11,34 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
 
         $scope.updateModalUser = function (entity) {
             $scope.user = entity;
+            $scope.updateBtn = true;
             $scope.user.re_password = entity.password;
             $scope.title_edit = 'Хэрэглэгч засах';
             $('#user').modal('show');
         }
 
-        $scope.updateUser = function () {
+        $scope.createModalUser = function () {
+            $scope.user = {};
+            $scope.title_edit = 'Хэрэглэгч нэмэх';
+            $scope.updateBtn = false;
+            $('#user').modal('show');
+        }
 
+        $scope.updateUser = function () {
             UserSrv.updateUser($scope.user,$scope.files).then(function (response) {
+                if(response.status == 200){
+                    alert(response.data.message);
+                }else{
+                    alert(response.data.message);
+                }
+            });
+        }
+
+        $scope.createUser = function () {
+            if($scope.user.password != $scope.user.re_password){
+                return $scope.error = 'Нууц үгээ шалгаад дахин оролдоно уу?';
+            }
+            UserSrv.createUser($scope.user,$scope.files).then(function (response) {
                 if(response.status == 200){
                     alert(response.data.message);
                 }else{
