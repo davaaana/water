@@ -218,3 +218,13 @@ exports.getUsers = function (req, res) {
         }
     });
 };
+
+exports.deleteUser = function (req, res) {
+    req.pg.query("DELETE FROM \"user\" WHERE username = $1",[req.params.id], function (err, result) {
+        if (err) {
+            return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
+        } else {
+            return res.status(200).json({message:'Амжилттай устгагдлаа'});
+        }
+    });
+};

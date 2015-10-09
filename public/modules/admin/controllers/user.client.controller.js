@@ -27,7 +27,8 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
         $scope.updateUser = function () {
             UserSrv.updateUser($scope.user,$scope.files).then(function (response) {
                 if(response.status == 200){
-                    alert(response.data.message);
+                    $scope.getUsers();
+                    $('#user').modal('hide');
                 }else{
                     alert(response.data.message);
                 }
@@ -40,7 +41,8 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
             }
             UserSrv.createUser($scope.user,$scope.files).then(function (response) {
                 if(response.status == 200){
-                    alert(response.data.message);
+                    $scope.getUsers();
+                    $('#user').modal('hide');
                 }else{
                     alert(response.data.message);
                 }
@@ -48,7 +50,14 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
         }
 
         $scope.deleteUser = function (username) {
-            alert(username);
+            UserSrv.deleteUser(username).then(function (response) {
+                if(response.status == 200){
+                    $scope.getUsers();
+                    $('#user').modal('hide');
+                }else{
+                    alert(response.data.message);
+                }
+            });
         }
 
         $scope.files = [];
