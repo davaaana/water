@@ -199,9 +199,10 @@ exports.updateUser = [
         var params = [user.password, user.fullname, user.phone, user.email || '', user.role_id || 1, imgPath, user.username,];
         req.pg.query("UPDATE \"user\" SET password = $1, fullname = $2, phone = $3, email = $4, role_id = $5, image = $6 WHERE username = $7", params, function (err, result) {
             if (err) {
+                console.log(err);
                 return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
             } else {
-                return res.status(200).json({message: 'Амжилттай хадгаллаа'});
+                return res.status(200).json({message: 'Амжилттай хадгаллаа',body:user});
             }
         });
     }];

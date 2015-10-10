@@ -19,10 +19,13 @@ angular.module('admin').controller('DashboardController', ['$rootScope', '$scope
         }
 
         $scope.updateUser = function () {
+            if(!$scope.user.password || $scope.user.password=='' || $scope.user.password != $scope.user.re_password){
+                return $rootScope.notifyMessage = {message:'Нууц үгээ шалгаад дахин оролдоно уу?',type:0};
+            }
             AdminUserSrv.updateUser($scope.user,$scope.files).then(function (response) {
                 if(response.status == 200){
-                    $scope.getUsers();
                     $('#AuthUser').modal('hide');
+                    $scope.authUser = response.data.body;
                     $rootScope.notifyMessage = {message:response.data.message,type:1};
                 }else{
                     alert(response.data.message);
@@ -30,6 +33,15 @@ angular.module('admin').controller('DashboardController', ['$rootScope', '$scope
                 }
             });
         }
+
+        $scope.files = [];
+
+        //listen for the file selected event
+        $scope.$on("fileSelected", function (event, args) {
+            $scope.$apply(function () {
+                $scope.files.push(args.file);
+            });
+        });
     }
 
 ]);
