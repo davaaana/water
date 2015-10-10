@@ -27,7 +27,7 @@
                 <td class="center-td">{{content.title}}</td>
                 <td class="center-td">{{content.content}}</td>
                 <td class="center-td">{{getCategoryName(content.category_id)}}</td>
-                <td class="center-td">{{content.created_date}}</td>
+                <td class="center-td">{{content.created_date | date: 'yyyy/MM/dd HH:mm:ss'}}</td>
                 <td class="center-td">{{content.user}}</td>
                 <td class="center-td">
                     <button data-ng-click="updateModalContent(content)" class="btn btn-default btn-sm">Засах</button>
