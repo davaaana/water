@@ -11,6 +11,7 @@
         <table class="table-list">
             <thead>
             <tr style="background: #006bb7">
+                <td class="center-td-title">Зураг</td>
                 <td class="center-td-title">Нэвтрэх нэр</td>
                 <td class="center-td-title">Нэр</td>
                 <td class="center-td-title">И-майл</td>
@@ -22,6 +23,7 @@
             </thead>
             <tbody>
             <tr data-ng-repeat="user in users">
+                <td class="center-td"><img src="{{user.image}}" style="width: 50px;height: 50px"></td>
                 <td class="center-td">{{user.username}}</td>
                 <td class="center-td">{{user.fullname}}</td>
                 <td class="center-td">{{user.phone}}</td>
@@ -51,7 +53,7 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <input type="text" class="form-control" name="username" data-ng-model="user.username"
+                    <input type="text" class="form-control" name="username" data-ng-disabled="updateBtn" data-ng-model="user.username"
                            placeholder="Нэвтрэх нэр">
                     <input type="password" class="form-control" name="password" data-ng-model="user.password"
                            placeholder="Нууц үг">

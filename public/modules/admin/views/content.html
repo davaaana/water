@@ -11,22 +11,24 @@
         <table class="table-list">
             <thead>
             <tr style="background: #006bb7">
+                <td class="center-td-title">Зураг</td>
                 <td class="center-td-title">Гарчиг</td>
                 <td class="center-td-title">Мэдээлэл</td>
-                <td class="center-td-title">Зураг</td>
                 <td class="center-td-title">Бүлэг</td>
                 <td class="center-td-title">Үүссэн огноо</td>
+                <td class="center-td-title">Үүсгсэн хэрэглэгч</td>
                 <td class="center-td-title" style="width: 80px;">Засах</td>
                 <td class="center-td-title" style="width: 80px;">Устгах</td>
             </tr>
             </thead>
             <tbody>
             <tr data-ng-repeat="content in contents">
+                <td class="center-td"><img src="{{content.image}}" style="width: 50px;height: 50px"></td>
                 <td class="center-td">{{content.title}}</td>
                 <td class="center-td">{{content.content}}</td>
-                <td class="center-td">{{content.image}}</td>
-                <td class="center-td">{{content.category}}</td>
+                <td class="center-td">{{getCategoryName(content.category_id)}}</td>
                 <td class="center-td">{{content.created_date}}</td>
+                <td class="center-td">{{content.user}}</td>
                 <td class="center-td">
                     <button data-ng-click="updateModalContent(content)" class="btn btn-default btn-sm">Засах</button>
                 </td>

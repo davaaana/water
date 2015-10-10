@@ -4,7 +4,7 @@
         <div class="left-1">
             <img src="../..{{authUser.image}}" class="user-img">
             <div class="user-desc">{{authUser.fullname}}</div>
-            <div style="padding-left: 30px;">Засах</div>
+            <div style="padding-left: 30px;" data-ng-click="updateModalUser(authUser)">Засах</div>
             <div class="menu-title">Үндсэн цэс</div>
         </div>
 
@@ -17,6 +17,40 @@
         <div id="innerwrap">
             <div class="container">
                 <div ui-view=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="AuthUser" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 style="color: #000000">{{title_edit}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="text" class="form-control" name="username" data-ng-disabled="updateBtn" data-ng-model="user.username"
+                           placeholder="Нэвтрэх нэр">
+                    <input type="password" class="form-control" name="password" data-ng-model="user.password"
+                           placeholder="Нууц үг">
+                    <input type="password" class="form-control" name="re_password" data-ng-model="user.re_password"
+                           placeholder="Нууц үг давт">
+                    <input type="text" class="form-control" name="fullname" data-ng-model="user.fullname"
+                           placeholder="Харагдах нэр">
+                    <input type="text" class="form-control" name="phone" data-ng-model="user.phone" placeholder="Утас">
+                    <input type="text" class="form-control" name="email" data-ng-model="user.email"
+                           placeholder="И-майл">
+                    <select class="form-control" name="role_id" data-ng-model="user.role_id"
+                            ng-options="role.id as role.name for role in roles"></select>
+                    <center>
+                        <input type="file" accept="image/*" file-upload  style="border: 1px solid gray; color:gray">
+                        <button data-ng-click="updateUser()" data-ng-show="updateBtn" class="btn btn-primary">Засах</button>
+                        <button data-ng-click="createUser()" data-ng-hide="updateBtn" class="btn btn-primary">Нэмэх</button>
+                    </center>
+                </form>
             </div>
         </div>
     </div>

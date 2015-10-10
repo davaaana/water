@@ -15,6 +15,13 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
             })
         }
 
+        $scope.getCategoryName = function (id) {
+            for(var i in $scope.categories){
+                if($scope.categories[i].id == id)
+                    return  $scope.categories[i].name;
+            }
+        };
+
         $scope.getContents = function () {
             ContentSrv.getContents().then(function (response) {
                 $scope.contents = response;
