@@ -29,8 +29,10 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
                 if(response.status == 200){
                     $scope.getUsers();
                     $('#user').modal('hide');
+                    $rootScope.notifyMessage = {message:response.data.message,type:1};
                 }else{
                     alert(response.data.message);
+                    $rootScope.notifyMessage = {message:response.data.message,type:0};
                 }
             });
         }
@@ -43,8 +45,9 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
                 if(response.status == 200){
                     $scope.getUsers();
                     $('#user').modal('hide');
+                    $rootScope.notifyMessage = {message:response.data.message,type:1};
                 }else{
-                    alert(response.data.message);
+                    $rootScope.notifyMessage = {message:response.data.message,type:0};
                 }
             });
         }
@@ -54,8 +57,9 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
                 if(response.status == 200){
                     $scope.getUsers();
                     $('#user').modal('hide');
+                    $rootScope.notifyMessage = {message:response.data.message,type:1};
                 }else{
-                    alert(response.data.message);
+                    $rootScope.notifyMessage = {message:response.data.message,type:0};
                 }
             });
         }

@@ -76,7 +76,6 @@ angular.module('admin').controller('CategoryController', ['$rootScope', '$scope'
                         }
                     }]
             });
-
         }
     }
 ]);

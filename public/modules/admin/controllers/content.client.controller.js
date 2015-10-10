@@ -33,8 +33,10 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
                 if(response.status == 200){
                     $scope.getContents();
                     $('#content').modal('hide');
+                    $rootScope.notifyMessage = {message:response.data.message,type:1};
                 }else{
                     alert(response.data.message);
+                    $rootScope.notifyMessage = {message:response.data.message,type:0};
                 }
             });
         }
@@ -44,21 +46,43 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
                 if(response.status == 200){
                     $scope.getContents();
                     $('#content').modal('hide');
+                    $rootScope.notifyMessage = {message:response.data.message,type:1};
                 }else{
-                    alert(response.data.message);
+                    $rootScope.notifyMessage = {message:response.data.message,type:0};
                 }
             });
         }
 
         $scope.deleteContent = function (id) {
-            ContentSrv.deleteContent(id).then(function (response) {
-                if(response.status == 200){
-                    $scope.getContents();
-                    $('#content').modal('hide');
-                }else{
-                    alert(response.data.message);
-                }
+            BootstrapDialog.show({
+                size: BootstrapDialog.SIZE_SMALL,
+                title: 'Устгах',
+                message: 'Итгэлтэй байна уу?',
+                buttons: [
+                    {
+                        label: 'Тийм',
+                        cssClass: 'btn-global-accept btn-sm',
+                        action: function (dialogItself) {
+                            ContentSrv.deleteContent(id).then(function (response) {
+                                if(response.status == 200){
+                                    $scope.getContents();
+                                    $('#content').modal('hide');
+                                    $rootScope.notifyMessage = {message:response.data.message,type:1};
+                                }else{
+                                    $rootScope.notifyMessage = {message:response.data.message,type:0};
+                                }
+                            });
+                            dialogItself.close();
+                        }
+                    }, {
+                        label: 'Үгүй',
+                        cssClass: 'btn-global-reject btn-sm',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                        }
+                    }]
             });
+
         }
 
         $scope.files = [];
