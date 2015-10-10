@@ -1,6 +1,5 @@
-        <div>
-            <button data-ng-click="add()">Нэмэх</button>
-            <button data-ng-click="update()">Засах</button>
+        <div data-ng-init="getContents()">
+            <button data-ng-click="addModalContent()">Нэмэх</button>
             <table>
                 <thead>
                 <tr>
@@ -9,6 +8,8 @@
                     <td>image</td>
                     <td>category</td>
                     <td>created date</td>
+                    <td class="center-td-title" style="width: 80px;">Засах</td>
+                    <td class="center-td-title" style="width: 80px;">Устгах</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -18,6 +19,12 @@
                     <td>{{content.image}}</td>
                     <td>{{content.category}}</td>
                     <td>{{content.created_date}}</td>
+                    <td class="center-td">
+                        <button data-ng-click="updateModalContent(content)">Засах</button>
+                    </td>
+                    <td class="center-td">
+                        <button data-ng-click="deleteContent(content.id)">Устгах</button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
@@ -30,9 +37,15 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 style="color: #000000">{{title_edit}}</h4>
             </div>
-            <div class="modal-body">
-                <input class="form-control" style="color: #000000" type="text" data-ng-mode="title" placeholder="Гарчиг">
-                <div style="color: #000000;width: 400px;height: 200px" text-angular ng-model="htmlVariable"></div>
+            <div class="modal-body" data-ng-init="getCategories()">
+                <div class="container">
+                    <input type="text" class="form-control" data-ng-model="content.title" placeholder="Гарчиг">
+                    <textarea ckeditor="editorOptions" name="detail" ng-model="content.content" placeholder="Агуулга"></textarea>
+                    <select class="form-control" data-ng-model="content.category_id" ng-options="category.id as category.name for category in categories"></select>
+                    <input type="file" accept="image/*" file-upload>
+                </div>
+                <button data-ng-click="updateContent()" data-ng-show="updateBtn">Засах</button>
+                <button data-ng-click="createContent()" data-ng-hide="updateBtn">Нэмэх</button>
             </div>
         </div>
     </div>

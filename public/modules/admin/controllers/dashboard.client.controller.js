@@ -8,7 +8,7 @@ angular.module('admin').controller('DashboardController', ['$rootScope', '$scope
             $scope.roles = response;
         });
 
-        $scope.authUser = window.user;
+        $scope.authUser = Auth.user;
     }
 
 ]);

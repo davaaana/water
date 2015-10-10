@@ -449,4 +449,78 @@ table td {
     vertical-align: middle;
 }
 
+.notifId {
+    display: none;
+}
+
+.notif-icon, .notif-msg {
+    float: left;
+}
+
+.notif-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.notif-icon-type-success {
+    background: url("../img/success.png") no-repeat 50% 50%;
+}
+
+.notif-icon-type-error {
+    background: url("../img/error.png") no-repeat 50% 50%;
+}
+
+.notif-msg {
+    width: 210px;
+    padding: 18px 0;
+    color: #fff;
+    text-align: left;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.close-notif {
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    background-color: #ee4823;
+    border: #fff solid 1px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    float: right;
+    margin: -10px -10px 0 0;
+    cursor: pointer;
+}
+
+.close-notif:hover {
+    background-color: #d23b1a;
+}
+
+.noti-success{
+    width: 290px;
+    height: 150px;
+    background-color: #0f2944;
+    position: fixed;
+    z-index: 1001;
+    right: 0;
+    bottom: 0;
+    margin-left: -100px;
+    display: block;
+}
+.noti-error{
+    width: 290px;
+    height: 150px;
+    background-color: #0f2944;
+    position: fixed;
+    z-index: 1001;
+    right: 0;
+    bottom: 0;
+    margin-left: -100px;
+    display: block;
+}
+
+
 

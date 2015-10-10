@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('core').
+angular.module('admin').
     directive('dialogDrag', function ($document) {
         "use strict";
         return function (scope, element) {
@@ -67,12 +67,6 @@ angular.module('core').directive('validFile', function () {
 });
 
 /**
- *
- * in controller:
- *
- * angular.module('core').controller('NewsController', ['$rootScope','$scope', function($rootScope, $scope){}
- * controller дээрээ $rootScope нэмнэ
- *
  * $rootScope.notifyMessage = {message: 'Таны хүсэлт амжилттай илгээгдлээ.',type: 1};
  * message: '' - notification дээр гарах үг
  * type: 1 - Амжилттай болсон үед ногооноор гарах
@@ -80,7 +74,7 @@ angular.module('core').directive('validFile', function () {
  *
  */
 
-angular.module('core').directive('notif', function ($rootScope) {
+angular.module('admin').directive('notif', function ($rootScope) {
     return {
         restrict: 'E',
         replace: true,
@@ -91,7 +85,6 @@ angular.module('core').directive('notif', function ($rootScope) {
             };
 
             $rootScope.$watch('notifyMessage', function () {
-
                 if (isEmpty($rootScope.notifyMessage)) {
                     return;
                 }

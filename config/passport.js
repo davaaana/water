@@ -33,8 +33,23 @@ module.exports = function(client) {
                     if (user.rows.length === 0) {
                         done(new TypeError('Account not found.'), null);
                     }
-                    user = user.rows[0];
-                    done(null, user);
+                    var fs = require('fs');
+                    fs.exists('./public' + user.rows[0].image, function (exists) {
+                        user = user.rows[0];
+                        if (!exists) {
+                            console.log('image not found');
+                            user.image = '/img/avatar.png';
+                            done(null, user);
+                        }else{
+                            done(null, user);
+                        }
+                    });
+
+
+
+
+
+
                 }
             });
         }

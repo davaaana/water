@@ -194,7 +194,6 @@ exports.updateUser = [
                 return res.status(400).json({message: 'Хэрэглэгчийн мэдээлэл бааз дээр алга байна'});
             }
         })
-        console.log(req.files.file.name);
         var imgPath = '/img/' + req.files.file.name;
         var params = [user.password, user.fullname, user.phone, user.email || '', user.role_id || 1, imgPath, user.username,];
         req.pg.query("UPDATE \"user\" SET password = $1, fullname = $2, phone = $3, email = $4, role_id = $5, image = $6 WHERE username = $7", params, function (err, result) {
@@ -220,6 +219,22 @@ exports.getUsers = function (req, res) {
 };
 
 exports.deleteUser = function (req, res) {
+    req.pg.query("SELECT * FROM \"user\" WHERE username = $1", [user.username], function (err, rst) {
+        if (err) {
+            return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
+        }
+        if (rst.rows.length > 0) {
+            var fs = require('fs');
+            fs.exists('./public' + rst.rows[0].image, function (exists) {
+                if (exists) {
+                    fs.unlink('./public' + rst.rows[0].image);
+                }
+            });
+        } else {
+            return res.status(400).json({message: 'Хэрэглэгчийн мэдээлэл бааз дээр алга байна'});
+        }
+    });
+
     req.pg.query("DELETE FROM \"user\" WHERE username = $1",[req.params.id], function (err, result) {
         if (err) {
             return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});

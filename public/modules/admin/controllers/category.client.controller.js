@@ -37,6 +37,7 @@ angular.module('admin').controller('CategoryController', ['$rootScope', '$scope'
         $scope.createCategory = function () {
             CategorySrv.createCategory($scope.category).then(function (response) {
                 if(response.status == 200){
+                    $rootScope.notifyMessage = {message:'succes',type:0}
                     $scope.getCategory();
                     $('#category').modal('hide');
                 }else{
@@ -46,14 +47,35 @@ angular.module('admin').controller('CategoryController', ['$rootScope', '$scope'
         }
 
         $scope.deleteCategory = function (id) {
-            CategorySrv.deleteCategory(id).then(function (response) {
-                if(response.status == 200){
-                    $scope.getCategory();
-                    $('#category').modal('hide');
-                }else{
-                    alert(response.data.message);
-                }
+            BootstrapDialog.show({
+                size: BootstrapDialog.SIZE_SMALL,
+                title: 'Устгах',
+                message: 'Итгэлтэй байна уу?',
+                buttons: [
+                    {
+                        label: 'Тийм',
+                        cssClass: 'btn-global-accept btn-sm',
+                        action: function (dialogItself) {
+                            CategorySrv.deleteCategory(id).then(function (response) {
+                                if(response.status == 200){
+                                    $scope.getCategory();
+                                    $rootScope.notifyMessage = {message:'succes',type:0}
+                                    $('#category').modal('hide');
+                                }else{
+                                    alert(response.data.message);
+                                }
+                            });
+                            dialogItself.close();
+                        }
+                    }, {
+                        label: 'Үгүй',
+                        cssClass: 'btn-global-reject btn-sm',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                        }
+                    }]
             });
+
         }
     }
 ]);
