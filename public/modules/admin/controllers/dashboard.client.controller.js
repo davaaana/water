@@ -1,14 +1,41 @@
 'use strict';
 
-angular.module('admin').controller('DashboardController', ['$rootScope', '$scope','$http', 'UserSrv','AdminUserSrv','Authentication','$location',
-    function ($rootScope, $scope,$http, UserSrv,AdminUserSrv,Auth,$location) {
+angular.module('admin').controller('DashboardController', ['$rootScope', '$scope','$http', 'UserSrv','AdminUserSrv','Authentication','$location','DashboardSrv','AdminContentSrv',
+    function ($rootScope, $scope,$http, UserSrv,AdminUserSrv,Auth,$location,DashboardSrv,ContentSrv) {
         if(!Auth.user){ return $location.path('/login');}
         $scope.title = 'Хоосо   н';
         $http.get('/roles').success(function (response) {
             $scope.roles = response;
         });
 
+        $http.get('/categories').success(function (response) {
+            $scope.categories = response;
+        });
+
+        $scope.getCategoryName = function (id) {
+            for(var i in $scope.categories){
+                if($scope.categories[i].id == id)
+                    return  $scope.categories[i].name;
+            }
+        };
+
         $scope.authUser = Auth.user;
+
+        $scope.initDashboard = function () {
+            ContentSrv.getContents().then(function (response) {
+                $scope.contents = response;
+            })
+
+            DashboardSrv.getChartContent().then(function (response) {
+                buildChart('chartContent',response,'chartContent','pie',300,300,'Нийт мэдээ агуулгаар',$scope);
+            });
+            DashboardSrv.getChartUser().then(function (response) {
+                buildChart('chartUser',response,'chartUser','pie',300,300,'Хэрэглэгчийн оруулсан мэдээ',$scope);
+            });
+            DashboardSrv.getLastContent().then(function (response) {
+
+            })
+        }
 
         $scope.updateModalUser = function (entity) {
             $scope.user = entity;

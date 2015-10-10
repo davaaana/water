@@ -1,14 +1,33 @@
-
-
-
-<!--    ???????????????
-    <form>
-        <input type="text" class="form-control" data-ng-model="username" placeholder="??????? ???">
-        <input type="password" class="form-control" data-ng-model="password" placeholder="???? ??">
-        <input type="password" class="form-control" data-ng-model="re_password" placeholder="???? ?? ????">
-        <input type="text" class="form-control" data-ng-model="fullname" placeholder="???????? ???">
-        <input type="text" class="form-control" data-ng-model="phone" placeholder="????">
-        <input type="text" class="form-control" data-ng-model="email" placeholder="?-????">
-        <select class="form-control" data-ng-model="role_id" ng-options="role.id as role.name for role in roles"></select>
-    </form>-->
-
+<div data-ng-init="initDashboard()">
+    <div class="row">
+        <div class="col-md-6" id="chartContent"></div>
+        <div class="col-md-6" id="chartUser"></div>
+    </div>
+    <div class="row">
+        <div style="color: #000000"> Сүүлд оруулсан 10 мэдээ</div>
+        <div class="div-border">
+            <table class="table-list">
+                <thead>
+                <tr style="background: #006bb7">
+                    <td class="center-td-title">Зураг</td>
+                    <td class="center-td-title">Гарчиг</td>
+                    <td class="center-td-title">Мэдээлэл</td>
+                    <td class="center-td-title">Бүлэг</td>
+                    <td class="center-td-title">Үүссэн огноо</td>
+                    <td class="center-td-title">Үүсгсэн хэрэглэгч</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-ng-repeat="content in contents">
+                    <td class="center-td"><img src="{{content.image}}" style="width: 50px;height: 50px"></td>
+                    <td class="center-td">{{content.title}}</td>
+                    <td class="center-td">{{content.content}}</td>
+                    <td class="center-td">{{getCategoryName(content.category_id)}}</td>
+                    <td class="center-td">{{content.created_date}}</td>
+                    <td class="center-td">{{content.user}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

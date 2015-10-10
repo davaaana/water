@@ -79,7 +79,7 @@ module.exports = {
             'public/scripts/langs.js',
             'public/scripts/jsonToExcelApi.js',
             'public/scripts/global.functions.js',
-            'public/scripts/global.functions.chart.js',
+            'public/scripts/chart.js',
             'public/config.js',
             'public/application.js',
             'public/modules/*/*.js',
