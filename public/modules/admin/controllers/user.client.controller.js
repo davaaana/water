@@ -9,6 +9,17 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
             });
         }
 
+        $http.get('/roles').success(function (response) {
+            $scope.roles = response;
+        });
+
+        $scope.getRoleName = function (id) {
+            for(var i in $scope.roles){
+                if($scope.roles[i].id == id)
+                    return  $scope.roles[i].name;
+            }
+        };
+
         $scope.updateModalUser = function (entity) {
             $scope.user = entity;
             $scope.updateBtn = true;
