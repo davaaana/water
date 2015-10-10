@@ -449,6 +449,11 @@ table td {
     vertical-align: middle;
 }
 
+.bootstrap-dialog-message{
+    color:#006bb7;
+    text-align: center;
+}
+
 .notifId {
     display: none;
 }
@@ -471,7 +476,7 @@ table td {
 }
 
 .notif-msg {
-    width: 210px;
+    width: 70px;
     padding: 18px 0;
     color: #fff;
     text-align: left;
@@ -500,9 +505,9 @@ table td {
 }
 
 .noti-success{
-    width: 290px;
-    height: 150px;
-    background-color: #0f2944;
+    width: 185px;
+    height: 100px;
+    background-color: #006bb7;
     position: fixed;
     z-index: 1001;
     right: 0;
@@ -511,9 +516,9 @@ table td {
     display: block;
 }
 .noti-error{
-    width: 290px;
-    height: 150px;
-    background-color: #0f2944;
+    width: 185px;
+    height: 100px;
+    background-color: #006bb7;
     position: fixed;
     z-index: 1001;
     right: 0;
