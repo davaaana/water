@@ -28,8 +28,9 @@ angular.module('admin').controller('CategoryController', ['$rootScope', '$scope'
                 if(response.status == 200){
                     $scope.getCategory();
                     $('#category').modal('hide');
+                    $rootScope.notifyMessage = {message:response.data.message,type:1};
                 }else{
-                    alert(response.data.message);
+                    $rootScope.notifyMessage = {message:response.data.message,type:0};
                 }
             });
         }
@@ -37,11 +38,11 @@ angular.module('admin').controller('CategoryController', ['$rootScope', '$scope'
         $scope.createCategory = function () {
             CategorySrv.createCategory($scope.category).then(function (response) {
                 if(response.status == 200){
-                    $rootScope.notifyMessage = {message:'succes',type:0}
+                    $rootScope.notifyMessage = {message:response.data.message,type:1};
                     $scope.getCategory();
                     $('#category').modal('hide');
                 }else{
-                    alert(response.data.message);
+                    $rootScope.notifyMessage = {message:response.data.message,type:0};
                 }
             });
         }
@@ -59,10 +60,10 @@ angular.module('admin').controller('CategoryController', ['$rootScope', '$scope'
                             CategorySrv.deleteCategory(id).then(function (response) {
                                 if(response.status == 200){
                                     $scope.getCategory();
-                                    $rootScope.notifyMessage = {message:'succes',type:0}
+                                    $rootScope.notifyMessage = {message:response.data.message,type:1};
                                     $('#category').modal('hide');
                                 }else{
-                                    alert(response.data.message);
+                                    $rootScope.notifyMessage = {message:response.data.message,type:0};
                                 }
                             });
                             dialogItself.close();

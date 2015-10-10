@@ -15,8 +15,8 @@ var init = require('./config/init')(),
  * Please note that the order of loading is important.
  */
 
-//var conString = "postgres://water:water@123@10.0.0.129/water";
-var conString = "postgres://water:water@123@10.2.101.147/water";
+var conString = "postgres://water:water@123@10.0.0.129/water";
+//var conString = "postgres://water:water@123@10.2.101.147/water";
 var client = new pg.Client(conString);
 
 client.connect(function(err, result) {
