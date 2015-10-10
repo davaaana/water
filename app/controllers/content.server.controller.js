@@ -7,6 +7,7 @@ var multer = require('multer');
 exports.getContents = function(req, res) {
     req.pg.query("SELECT * FROM content", function (err, result) {
         if(err){
+            console.log(err);
             return res.status(400).json({message:'Бааз дээр алдаа гралаа'});
         }else{
             if(result.rows.length == 0){
@@ -21,6 +22,7 @@ exports.getContents = function(req, res) {
 exports.getContent = function(req, res, next) {
     req.pg.query("SELECT * FROM content WHERE id = $1",[req.params.id], function (err, result) {
         if(err){
+            console.log(err);
             return res.status(400).json({message:'Бааз дээр алдаа гарлаа'});
         }else{
             if(result.rows.length == 0){
@@ -34,6 +36,7 @@ exports.getContent = function(req, res, next) {
 exports.deleteContents = function(req, res, next) {
     req.pg.query("SELECT * FROM content WHERE id = $1", [req.params.id], function (err, rst) {
         if (err) {
+            console.log(err);
             return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
         }
         if (rst.rows.length > 0) {
@@ -115,6 +118,7 @@ exports.updateContent = [
     var content = config.convertToJson(req.body.content);
     req.pg.query("SELECT * FROM content WHERE id = $1", [req.params.id], function (err, rst) {
         if (err) {
+            console.log(err);
             return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
         }
         if (rst.rows.length > 0) {

@@ -181,6 +181,7 @@ exports.updateUser = [
         console.log(req.body.user);
         req.pg.query("SELECT * FROM \"user\" WHERE username = $1", [user.username], function (err, rst) {
             if (err) {
+                console.log(err);
                 return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
             }
             if (rst.rows.length > 0) {
@@ -221,6 +222,7 @@ exports.getUsers = function (req, res) {
 exports.deleteUser = function (req, res) {
     req.pg.query("SELECT * FROM \"user\" WHERE username = $1", [user.username], function (err, rst) {
         if (err) {
+            console.log(err);
             return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
         }
         if (rst.rows.length > 0) {
@@ -237,6 +239,7 @@ exports.deleteUser = function (req, res) {
 
     req.pg.query("DELETE FROM \"user\" WHERE username = $1",[req.params.id], function (err, result) {
         if (err) {
+            console.log(err);
             return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
         } else {
             return res.status(200).json({message:'Амжилттай устгагдлаа'});
