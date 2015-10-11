@@ -4,12 +4,11 @@
 angular.module(ApplicationConfiguration.applicationModuleName, ApplicationConfiguration.applicationModuleVendorDependencies);
 
 // Setting HTML5 Location Mode
-angular.module(ApplicationConfiguration.applicationModuleName).config(['$locationProvider', '$httpProvider', 'uiGmapGoogleMapApiProvider',
-	function($locationProvider, $httpProvider, GoogleMapApiProviders) {
+angular.module(ApplicationConfiguration.applicationModuleName).config(['$locationProvider', '$httpProvider', 'blockUIConfig',
+	function($locationProvider, $httpProvider, blockUIConfig) {
 		$locationProvider.hashPrefix('!');
-		GoogleMapApiProviders.configure({
-			mongolia: true
-		});
+		blockUIConfig.message = 'Ачааллаж байна...';
+		blockUIConfig.autoBlock  = true;
 	}
 ]);
 

@@ -24,6 +24,7 @@ module.exports = {
                 'public/lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css',
                 'public/lib/bootstrap3-dialog/dist/css/bootstrap-dialog.min.css',
                 'public/modules/style/admin.css',
+                'public/lib/angular-block-ui/dist/angular-block-ui.min.css'
             ],
             js: [
                 'public/vendors/js/jquery.min.js',
@@ -58,7 +59,8 @@ module.exports = {
                 'public/lib/angular-smart-table/dist/smart-table.min.js',
                 'public/vendors/js/jsPDF/jspdf.min.js',
                 'public/vendors/js/jsPDF/jspdf.plugin.addhtml.js',
-                'public/vendors/js/html2canvas.js'
+                'public/vendors/js/html2canvas.js',
+                'public/lib/angular-block-ui/dist/angular-block-ui.min.js'
             ]
         },
         css: [
