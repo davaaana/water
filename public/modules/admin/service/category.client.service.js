@@ -34,6 +34,8 @@ angular.module('admin').factory('AdminCategorySrv', function ($http) {
                 url: ' /category/'+id
             }).success(function (err,response) {
                 return response;
+            }).error(function (response) {
+                return response
             });
             return promise;
         }

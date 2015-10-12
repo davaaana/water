@@ -64,14 +64,35 @@ angular.module('admin').controller('UserController', ['$rootScope', '$scope','$h
         }
 
         $scope.deleteUser = function (username) {
-            UserSrv.deleteUser(username).then(function (response) {
-                if(response.status == 200){
-                    $scope.getUsers();
-                    $('#user').modal('hide');
-                    $rootScope.notifyMessage = {message:response.data.message,type:1};
-                }else{
-                    $rootScope.notifyMessage = {message:response.data.message,type:0};
-                }
+            BootstrapDialog.show({
+                size: BootstrapDialog.SIZE_SMALL,
+                title: 'Устгах',
+                message: 'Итгэлтэй байна уу?',
+                buttons: [
+                    {
+                        label: 'Тийм',
+                        cssClass: 'btn-global-accept btn-sm',
+                        action: function (dialogItself) {
+                            UserSrv.deleteUser(username).success(function (response) {
+                                if(response.status == 200){
+                                    $scope.getUsers();
+                                    $('#user').modal('hide');
+                                    $rootScope.notifyMessage = {message:response.data.message,type:1};
+                                }else{
+                                    $rootScope.notifyMessage = {message:response.data.message,type:0};
+                                }
+                            }).error(function () {
+                                $rootScope.notifyMessage = {message:'Энэ өгөгдлийг устгах боломжгүй',type:0};
+                            });
+                            dialogItself.close();
+                        }
+                    }, {
+                        label: 'Үгүй',
+                        cssClass: 'btn-global-reject btn-sm',
+                        action: function (dialogItself) {
+                            dialogItself.close();
+                        }
+                    }]
             });
         }
 
