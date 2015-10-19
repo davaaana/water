@@ -5,7 +5,45 @@ var config = require('../../config/config.js');
 var multer = require('multer');
 
 exports.getContents = function(req, res) {
-    req.pg.query("SELECT * FROM content", function (err, result) {
+
+    var query = 'SELECT * FROM content';
+
+    if(req.query.categoryId){
+        query += ' WHERE category_id = '+req.query.categoryId;
+    }
+
+    if(req.query.page && req.query.pageSize){
+        query += ' ORDER BY created_date DESC OFFSET '+(req.query.page*req.query.pageSize)+' LIMIT '+req.query.pageSize;
+    }
+
+    var data = {};
+    req.pg.query(query, function (err, result) {
+        if(err){
+            console.log(err);
+            return res.status(400).json({message:'Бааз дээр алдаа гралаа'});
+        }else{
+            if(result.rows.length == 0){
+                return res.status(201).json({message:'Харуулах өгөгдөл алга байна'});
+            }else{
+                data.data = result.rows;
+                req.pg.query('SELECT count(id) as count FROM content', function (err, resu) {
+                    data.count = resu.rows[0].count;
+                    return res.status(200).json(data);
+                })
+            }
+        }
+    });
+};
+
+exports.getContentSearch = function(req, res) {
+
+    var query = 'SELECT * FROM content';
+
+    if(req.query.search){
+        query += ' WHERE content LIKE \'%'+req.query.search+'%\' OR title LIKE \'%'+req.query.search+'%\' ';
+    }
+
+    req.pg.query(query, function (err, result) {
         if(err){
             console.log(err);
             return res.status(400).json({message:'Бааз дээр алдаа гралаа'});

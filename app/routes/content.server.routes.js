@@ -9,6 +9,7 @@ module.exports = function(app) {
     var a = user.hasAuthorizationAdmin;
 
     app.route('/contents').get(content.getContents);
+    app.route('/contentSearch').get(content.getContentSearch);
     app.route('/content/:id').get(content.getContent);
 
     //content DML

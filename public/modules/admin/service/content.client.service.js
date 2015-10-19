@@ -6,8 +6,17 @@ angular.module('admin').factory('AdminContentSrv', function ($http) {
             });
             return promise;
         },
-        getContents: function () {
-            var promise = $http.get('/contents').then(function (response) {
+        getContents: function (params) {
+            var promise = $http.get('/contents'+params).then(function (response) {
+                return response.data;
+            });
+            return promise;
+        },
+        getContentSearch: function (search) {
+            if(!search){
+                search = '';
+            }
+            var promise = $http.get('/contentSearch?search = '+search).then(function (response) {
                 return response.data;
             });
             return promise;
