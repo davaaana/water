@@ -19,6 +19,24 @@ angular.module('core').factory('coreUserSrv', function ($http) {
             });
 
             return promise;
+        },
+        getContents: function (categoryId, page, pageSize) {
+            var promise = $http.get('/contents?categoryId='+categoryId+'&page='+page+'&pageSize='+pageSize).then(function (response) {
+                return response.data;
+            });
+            return promise;
+        },
+        getLastContents: function () {
+            var promise = $http.get('/contents?page=0&pageSize=10').then(function (response) {
+                return response.data;
+            });
+            return promise;
+        },
+        getSlideContents: function (contentId) {
+            var promise = $http.get('/contents?').then(function (response) {
+                return response.data;
+            });
+            return promise;
         }
     };
 });

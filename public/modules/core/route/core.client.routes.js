@@ -18,7 +18,8 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider', '$locatio
 		}).
         state('home.index', {
             url: '',
-            templateUrl: 'modules/core/views/home.html'
+            templateUrl: 'modules/core/views/home.html',
+			controller:'HomeController'
         });
 	}
 ]);
