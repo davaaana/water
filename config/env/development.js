@@ -73,6 +73,7 @@ module.exports = {
             'public/styles/information.css',
             'public/styles/menu.css',
             'public/styles/fonts.css',
+            'public/modules/style/css.css',
             'public/styles/dialogBox.css',
             'public/styles/dataTables.bootstrap.css',
             'public/modules/**/css/*.css'

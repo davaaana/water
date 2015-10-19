@@ -10,6 +10,7 @@
     "angular-mocks": "~1.2",
     "angular-bootstrap": "~0.12.0",
     "angular-ui-utils": "~0.1.1",
+    "angular-block-ui": "~0.2.0",
     "angular-ui-router": "~0.2.11",
     "ng-ckeditor": "~0.2.1",
     "ng-timeago": "~0.0.2",
