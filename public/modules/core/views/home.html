@@ -6,9 +6,11 @@
                     <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
                         <uib-slide ng-repeat="slide in slides" active="slide.active">
                             <img ng-src="{{slide.image}}" style="margin:auto;">
+
                             <div class="carousel-caption">
-                                <h4>{{slide.title}}</h4>
-                                <p> {{slide.content}}</p>
+                                <h4>{{slide.title | limitTo: 23 }}</h4>
+
+                                <p> {{slide.content | limitTo: 40 }}</p>
                             </div>
                         </uib-slide>
                     </uib-carousel>
@@ -18,18 +20,41 @@
 
         <div class="row">
             <div class="col-lg-12">
-                TAB
+                <uib-tabset justified="true">
+                    <uib-tab heading="Мэдээллийн сан">Мэдээллийн сан</uib-tab>
+                    <uib-tab heading="Хөгжүүлэгч">Хөгжүүлэгч хэсэг</uib-tab>
+                </uib-tabset>
             </div>
         </div>
 
         <div class="row">
             <div class="col-lg-6">
-                lastContent
-                {{lastContents}}
+                <div class="line-border-vr-top">
+                    <div class="news-title">Шинэ мэдээ</div>
+                </div>
+                <div ng-repeat="content in lastContents">
+                    <div class="news padding-5">
+                        <div class="fl-left">
+                            <img ng-src="{{content.image}}" class="news-img">
+                        </div>
+                        <div>
+                            <div class="content-title">
+                                {{content.title}}
+                            </div>
+                            <div class="font-gray">
+                                {{content.created_date}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6">
-                homeContent
-                {{homeContents}}
+
+                <div class="title"> {{homeContents.title}}</div>
+                <img ng-src="{{homeContents.image}}" class="news-img-1">
+                <div>
+                    {{homeContents.content}}
+                </div>
             </div>
         </div>
 
