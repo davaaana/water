@@ -6,8 +6,8 @@ angular.module('admin').factory('AdminContentSrv', function ($http) {
             });
             return promise;
         },
-        getContents: function (params) {
-            var promise = $http.get('/contents').then(function (response) {
+        getContents: function (categoryId,page,pageSize) {
+            var promise = $http.get('/contents?categoryId='+categoryId+'&page='+page+'&pageSize='+pageSize).then(function (response) {
                 return response.data;
             });
             return promise;

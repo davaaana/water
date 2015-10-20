@@ -23,7 +23,7 @@ angular.module('admin').controller('DashboardController', ['$rootScope', '$scope
 
         $scope.initDashboard = function () {
             ContentSrv.getContents().then(function (response) {
-                $scope.contents = response;
+                $scope.contents = response.data;
             })
 
             DashboardSrv.getChartContent().then(function (response) {

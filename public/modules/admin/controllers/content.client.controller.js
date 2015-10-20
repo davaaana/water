@@ -3,6 +3,7 @@
 angular.module('admin').controller('ContentController', ['$rootScope', '$scope','$http', 'AdminContentSrv','Authentication','$location',
     function ($rootScope, $scope,$http, ContentSrv,Authentication,$location) {
 
+        $scope.pageNumber = [];
         $scope.addModalContent = function () {
             $scope.title_edit='Нэмэх';
             $scope.updateBtn = false;
@@ -23,10 +24,22 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
         };
 
         $scope.getContents = function () {
-            ContentSrv.getContents().then(function (response) {
+            ContentSrv.getContents('',0,5).then(function (response) {
                 $scope.contents = response.data;
+                $scope.totalCount = response.count;
+                for(var i = 0;i < response.count/5;i++){
+                    $scope.pageNumber.push(i);
+                }
+                console.log($scope.pageNumber);
             })
         }
+
+        $scope.pageChange = function (el) {
+            ContentSrv.getContents('',el,5).then(function (response) {
+                $scope.contents = response.data;
+                $scope.totalCount = response.count;
+            })
+        };
 
         $scope.updateModalContent = function (content) {
             $scope.title_edit = 'Засах'

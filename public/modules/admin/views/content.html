@@ -37,7 +37,22 @@
                 </td>
             </tr>
             </tbody>
+            <tfoot>
+            <tr>
+                <td>Нийт агуулга:</td>
+                <td>{{totalCount}}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td colspan="9"><ul data-ng-repeat="p in pageNumber"><li data-ng-click="pageChange(p)">{{p+1}}</li></ul></td>
+            </tr>
+            </tfoot>
         </table>
+
     </div>
 </div>
 
