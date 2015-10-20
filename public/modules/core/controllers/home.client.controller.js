@@ -10,7 +10,7 @@ angular.module('core').controller('HomeController', ['$rootScope', '$scope','$ht
         $scope.homePage = 0;
 
         coreUserSrv.getSlideContents($scope.contentIds.slide).then(function (res) {
-            $scope.slides = res.data;
+            $scope.slides = res;
         });
 
         coreUserSrv.getLastContents().then(function (res) {
