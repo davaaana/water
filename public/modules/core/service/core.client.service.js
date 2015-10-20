@@ -33,7 +33,7 @@ angular.module('core').factory('coreUserSrv', function ($http) {
             return promise;
         },
         getSlideContents: function (contentId) {
-            var promise = $http.get('/contents?').then(function (response) {
+            var promise = $http.get('/content/slide').then(function (response) {
                 return response.data;
             });
             return promise;

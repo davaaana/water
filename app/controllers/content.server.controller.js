@@ -57,6 +57,24 @@ exports.getContentSearch = function(req, res) {
     });
 };
 
+exports.getSlider = function(req, res) {
+
+    var query = 'SELECT * FROM content WHERE category_id = (SELECT id FROM category WHERE name = \'Слайд\')';
+
+    req.pg.query(query, function (err, result) {
+        if(err){
+            console.log(err);
+            return res.status(400).json({message:'Бааз дээр алдаа гралаа'});
+        }else{
+            if(result.rows.length == 0){
+                return res.status(201).json({message:'Харуулах өгөгдөл алга байна'});
+            }
+            return res.status(200).json(result.rows);
+        }
+
+    });
+};
+
 exports.getContent = function(req, res, next) {
     req.pg.query("SELECT * FROM content WHERE id = $1",[req.params.id], function (err, result) {
         if(err){

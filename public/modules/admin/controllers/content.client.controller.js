@@ -24,7 +24,7 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
 
         $scope.getContents = function () {
             ContentSrv.getContents().then(function (response) {
-                $scope.contents = response;
+                $scope.contents = response.data;
             })
         }
 

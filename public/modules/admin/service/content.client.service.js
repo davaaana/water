@@ -7,7 +7,7 @@ angular.module('admin').factory('AdminContentSrv', function ($http) {
             return promise;
         },
         getContents: function (params) {
-            var promise = $http.get('/contents'+params).then(function (response) {
+            var promise = $http.get('/contents').then(function (response) {
                 return response.data;
             });
             return promise;
