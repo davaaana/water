@@ -1,16 +1,62 @@
-<div>
-    slider
-    {{slides}}
+<div class="row">
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-lg-12">
+                <div style="height: 305px">
+                    <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+                        <uib-slide ng-repeat="slide in slides" active="slide.active">
+                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                            <div class="carousel-caption">
+                                <h4>{{slide.title}}</h4>
+                                <p> {{slide.content}}</p>
+                            </div>
+                        </uib-slide>
+                    </uib-carousel>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                TAB
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                lastContent
+                {{lastContents}}
+            </div>
+            <div class="col-lg-6">
+                homeContent
+                {{homeContents}}
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <div data-ng-include="'modules/core/views/login.html'"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                Үйл ажиллагаа
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="../../../img/site/banner/banner1.jpg" class="banner"/>
+                <img src="../../../img/site/banner/banner2.jpg" class="banner"/>
+                <img src="../../../img/site/banner/banner3.jpg" class="banner"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                САНАЛ ХҮСЭЛТ
+            </div>
+        </div>
+    </div>
 </div>
-<br>
-<br>
-<div>
-    lastContent
-    {{lastContents}}
-</div>
-<br>
-<br>
-<div>
-    homeContent
-    {{homeContents}}
-</div>
+

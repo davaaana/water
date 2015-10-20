@@ -1,8 +1,159 @@
-#innerwrap{
-    color:#565657;
+#innerwrap {
+    color: #0087cb;
 }
 
-.blog-footer{
-    background:#0172a8;
-    color:white;
+.blog-footer {
+    background: #0087cb;
+    color: white;
+}
+
+.menu {
+    background: #0087cb;
+    height: 52px;
+}
+
+.menu > li > a {
+    color: white;
+}
+
+.login-bg {
+    background: #0087cb;
+    padding: 5px;
+}
+
+.padding-5 {
+    padding: 5px;
+}
+
+.banner {
+    padding-top: 5px;
+}
+
+.undp {
+    float: right;
+}
+
+.bhby {
+    padding-top: 15px;
+    float: left;
+    padding-right: 6px;
+}
+
+.bhby-title {
+    font-size: 29px;
+    font-weight: 600;
+    line-height: 29px;
+    padding-top: 35px;
+    color: #00428a;
+    width: 670px;
+}
+
+#user form {
+    padding: 0px;
+}
+
+.tab-content {
+    background: white;
+    padding: 6px;
+}
+
+.login-panel {
+    height: 42px;
+}
+
+.in-active {
+    background: #00438a;
+    color: white;
+}
+
+.login-title {
+    color: white;
+    padding-left: 10px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.nav-tabs > li > a {
+    border-radius: 0px;
+}
+
+.active {
+    margin-left: 5px;
+}
+
+.padding-bottom-5 {
+    padding-bottom: 5px;
+}
+
+.no-border-radius {
+    border-radius: 0px;
+}
+
+.width-215 {
+    width: 215px;
+}
+
+.padding-15 {
+    padding: 15px;
+    font-size: 13px;
+}
+
+.bold-600 {
+    font-weight: 600;
+}
+
+.number {
+    font-size: 45px;
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+.phone {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.font-15 {
+    font-size: 15px;
+}
+
+.page-bottom {
+    padding-top: 48px;
+}
+
+.line-border-hr {
+    border-right: 1px solid #4ba7d3;
+    border-left: 1px solid #4ba7d3;
+}
+
+.line-border-vr {
+    border-top: 1px solid #4ba7d3;
+    border-bottom: 1px solid #4ba7d3;
+}
+
+.line-border-vr-bottom {
+    border-bottom: 1px solid #4ba7d3;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+.line-border-right {
+    border-right: 1px solid #4ba7d3;
+}
+
+.terms {
+    color: #ffffff;
+}
+
+.new-form {
+    width: 80%;
+    height: 25px;
+    padding: 0px;
 }
