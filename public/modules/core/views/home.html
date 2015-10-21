@@ -1,15 +1,14 @@
-<div class="row">
+<div class="row" style="background: #ecebe6; padding: 10px 0;  margin: 10px 0">
     <div class="col-lg-9">
         <div class="row">
             <div class="col-lg-12">
                 <div style="height: 305px">
-                    <carousel interval="2000">
+                    <carousel interval="20000">
                         <slide ng-repeat="slide in slides">
-                            <img ng-src="{{slide.image}}" style="margin:auto;height: 300px">
-                            <div class="carousel-caption">
-                                <h4>{{slide.title | limitTo: 23 }}</h4>
-
-                                <p> {{slide.content | limitTo: 40 }}</p>
+                            <img ng-src="{{slide.image}}" style="margin:auto;height: 300px; width: 850px">
+                            <div class="carousel-caption slide-bg">
+                                <h4 class="slide-title">{{slide.title | limitTo: 23 }}</h4>
+                                <p class="slide-content"> {{slide.content | limitTo: 240 }}</p>
                             </div>
                         </slide>
                     </carousel>
@@ -17,16 +16,26 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="padding-bottom: 20px; padding-top: 10px">
             <div class="col-lg-12">
-                <tabset>
-                    <tab heading="Static title">Static content</tab>
+                <tabset class="main-tab">
+                    <tab heading="Мэдээллийн сан">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                Мэдээ
+                            </div>
+                            <div class="col-lg-6">
+                                Зааварчилгаа
+                            </div>
+                        </div>
+                    </tab>
                     <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
                         {{tab.content}}
                     </tab>
                     <tab select="alertMe()">
                         <tab-heading>
-                            <i class="glyphicon glyphicon-bell"></i> Alert!
+                            Хөгжүүлгч
+                        <!--    <i class="glyphicon glyphicon-bell"></i> Alert!-->
                         </tab-heading>
                         I've got an HTML heading, and a select callback. Pretty cool!
                     </tab>
@@ -58,10 +67,10 @@
             </div>
             <div class="col-lg-6">
 
-                <div class="title"> {{homeContents.title}}</div>
-                <img ng-src="{{homeContents.image}}" class="news-img-1">
+                <div class="title"> {{homeContents[0].title}}</div>
+                <img ng-src="{{homeContents[0].image}}" class="news-img-1">
                 <div>
-                    {{homeContents.content}}
+                    {{homeContents[0].content}}
                 </div>
             </div>
         </div>
@@ -76,6 +85,28 @@
         <div class="row">
             <div class="col-lg-12">
                 Үйл ажиллагаа
+                <tabset class="main-tab">
+                    <tab heading="Болох">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                Мэдээ
+                            </div>
+                            <div class="col-lg-6">
+                                Зааварчилгаа
+                            </div>
+                        </div>
+                    </tab>
+                    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                        {{tab.content}}
+                    </tab>
+                    <tab select="alertMe()">
+                        <tab-heading>
+                            Болсон
+                            <!--    <i class="glyphicon glyphicon-bell"></i> Alert!-->
+                        </tab-heading>
+                        I've got an HTML heading, and a select callback. Pretty cool!
+                    </tab>
+                </tabset>
             </div>
         </div>
         <div class="row">

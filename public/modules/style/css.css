@@ -49,12 +49,13 @@
 }
 
 #user form {
-    padding: 0px;
+    padding: 1px;
 }
 
 .tab-content {
     background: white;
     padding: 6px;
+
 }
 
 .login-panel {
@@ -77,10 +78,6 @@
     border-radius: 0px;
 }
 
-.active {
-    margin-left: 5px;
-}
-
 .padding-bottom-5 {
     padding-bottom: 5px;
 }
@@ -89,8 +86,8 @@
     border-radius: 0px;
 }
 
-.width-215 {
-    width: 215px;
+.width-220 {
+    width: 220px;
 }
 
 .padding-15 {
@@ -140,7 +137,7 @@
     border-bottom: 1px solid #4ba7d3;
 }
 
-.line-border-vr-top{
+.line-border-vr-top {
     border-top: 3px solid #4ba7d3;
 }
 
@@ -171,7 +168,7 @@
     color: #5e5959;
 }
 
-.news{
+.news {
     min-height: 62px;
 }
 
@@ -185,12 +182,12 @@
     width: 400px;
 }
 
-.news-title{
+.news-title {
     padding: 5px 0;
     font-size: 20px;
 }
 
-.content-title{
+.content-title {
     font-weight: 600;
 }
 
@@ -199,12 +196,83 @@
     border-left: 1px solid white;
 }
 
-.navbar-default .navbar-nav > li > a:last-child  {
+.navbar-default .navbar-nav > li > a:last-child {
     border-right: 1px solid white;
 }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     background: #0770a6;
     color: white;
     font-weight: bold;
+}
+
+.slide-bg {
+    background: black;
+    opacity: 0.7;
+    width: 825px;
+}
+
+.carousel-caption {
+    right: 0;
+    left: 0;
+    padding-bottom: 0px;
+    bottom: 0px;
+    text-align: left;
+    padding-top: 0px;
+}
+
+.slide-title {
+    padding-left: 15px;
+    text-decoration: underline;
+}
+
+.slide-content {
+    padding-left: 15px;
+}
+
+.carousel-indicators {
+    left: 0;
+    width: 100%;
+    margin-left: 0%;
+    padding-right: 10px;
+    text-align: right;
+    bottom: 0px;
+}
+
+.user-form {
+    padding: 0px;
+}
+
+.login-tab > ul > li.active > a, .login-tab > ul li.active > a:focus, .login-tab > ul li.active > a:hover {
+    font-weight: bold;
+
+
+}
+
+.login-tab > ul > li {
+    background: #00438a;
+
+}
+
+.login-tab > ul > li > a {
+    color:white;
+}
+.nav-tabs{
+    margin-left: 5px;
+}
+
+.main-tab > ul > li.active > a, .main-tab > ul li.active > a:focus, .main-tab > ul li.active > a:hover {
+    font-weight: bold;
+    background: #d7d3c7;
+
+
+}
+
+.main-tab > ul > li {
+    background: #717171;
+
+}
+
+.main-tab > ul > li > a {
+    color:white;
 }

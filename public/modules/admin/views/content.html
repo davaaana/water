@@ -39,17 +39,18 @@
             </tbody>
             <tfoot>
             <tr>
-                <td>Нийт агуулга:</td>
-                <td>{{totalCount}}</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td> </td>
+                <td colspan="2">Нийт агуулга: {{totalCount}}</td>
+                <td colspan="6" style="text-align: center">
+                    <nav>
+                        <ul class="pagination"  data-ng-repeat="p in pageNumber">
+                            <li data-ng-click="pageChange(p)">{{p+1}}</li>
+                        </ul>
+                    </nav>
+                </td>
             </tr>
-            <tr>
+           <!-- <tr>
                 <td colspan="9"><ul data-ng-repeat="p in pageNumber"><li data-ng-click="pageChange(p)">{{p+1}}</li></ul></td>
-            </tr>
+            </tr>-->
             </tfoot>
         </table>
 
