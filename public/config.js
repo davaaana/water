@@ -4,7 +4,7 @@
 var ApplicationConfiguration = (function() {
 	// Init module configuration options
 	var applicationModuleName = 'water';
-	var applicationModuleVendorDependencies = ['ngResource',  'ui.router', 'ui.bootstrap', 'ui.utils', 'ngDialog', 'blockUI','ngCkeditor', 'ngSanitize', 'ngtimeago', 'angulike','ui.grid','angularUtils.directives.dirPagination','ui.bootstrap.datetimepicker'];
+	var  applicationModuleVendorDependencies = ['ngResource',  'ui.router', 'ui.bootstrap','blockUI'];
 
 	// Add a new vertical module
 	var registerModule = function(moduleName, dependencies) {
