@@ -18,16 +18,17 @@
 
                 <div  class="collapse navbar-collapse menu-link">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Нүүр <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Мэдээ мэдээлэл</a></li>
-                        <li><a href="#">Хууль эрх зүй</a></li>
-                        <li><a href="#">Төсөл хөтөлбөрүүд</a></li>
-                        <li><a href="#">Бидний тухай</a></li>
-                        <li><a href="#">Холбоо барих</a></li>
+                        <li class="active"><a href="#!/index">Нүүр <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#!/index/news">Мэдээ мэдээлэл</a></li>
+                        <li><a href="#!/index/law">Хууль эрх зүй</a></li>
+                        <li><a href="#!/index/project">Төсөл хөтөлбөрүүд</a></li>
+                        <li><a href="#!/index/about">Бидний тухай</a></li>
+                        <li><a href="#!/index/contact">Холбоо барих</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control no-border-radius" placeholder="Хайх утга...">
+                            <input type="text" class="form-control no-border-radius" data-ng-model="searchText" placeholder="Хайх утга...">
+                            <input type="button" class="form-control no-border-radius" value="Хайх" data-ng-click="searchContent(searchText)">
                         </div>
 
                     </form>

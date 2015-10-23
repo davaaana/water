@@ -21,6 +21,13 @@ angular.module('core').controller('HomeController', ['$rootScope', '$scope','$ht
             $scope.homeContents = res.data;
         })
 
+        $scope.getContent = function (id) {
+            $scope.$parent.getContent(id);
+        }
+
+        $scope.searchContent = function (text) {
+            $scope.$parent.searchContent(text);
+        }
     }
 
 ]);

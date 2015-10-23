@@ -26,6 +26,18 @@ angular.module('core').factory('coreUserSrv', function ($http) {
             });
             return promise;
         },
+        searchContents: function (text) {
+            var promise = $http.get('/contentSearch?search='+text).then(function (response) {
+                return response.data;
+            });
+            return promise;
+        },
+        getContent: function (id) {
+            var promise = $http.get('/content/'+id).then(function (response) {
+                return response.data;
+            });
+            return promise;
+        },
         getLastContents: function () {
             var promise = $http.get('/contents?page=0&pageSize=10').then(function (response) {
                 return response.data;
