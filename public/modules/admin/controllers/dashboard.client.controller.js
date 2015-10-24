@@ -22,10 +22,6 @@ angular.module('admin').controller('DashboardController', ['$rootScope', '$scope
         $scope.authUser = Auth.user;
 
         $scope.initDashboard = function () {
-            ContentSrv.getContents().then(function (response) {
-                $scope.contents = response.data;
-            })
-
             DashboardSrv.getChartContent().then(function (response) {
                 buildChart('chartContent',response,'chartContent','pie',300,300,'Нийт мэдээ агуулгаар',$scope);
             });
@@ -33,7 +29,7 @@ angular.module('admin').controller('DashboardController', ['$rootScope', '$scope
                 buildChart('chartUser',response,'chartUser','pie',300,300,'Хэрэглэгчийн оруулсан мэдээ',$scope);
             });
             DashboardSrv.getLastContent().then(function (response) {
-
+                $scope.contents = response;
             })
         }
 

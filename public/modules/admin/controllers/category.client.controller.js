@@ -57,13 +57,13 @@ angular.module('admin').controller('CategoryController', ['$rootScope', '$scope'
                         label: 'Тийм',
                         cssClass: 'btn-global-accept btn-sm',
                         action: function (dialogItself) {
-                            CategorySrv.deleteCategory(id).success(function (response) {
-                                if(response.status == 200){
+                            CategorySrv.deleteCategory(id).success(function (response,status) {
+                                if(status == 200){
                                     $scope.getCategory();
-                                    $rootScope.notifyMessage = {message:response.data.message,type:1};
+                                    $rootScope.notifyMessage = {message:response.message,type:1};
                                     $('#category').modal('hide');
                                 }else{
-                                    $rootScope.notifyMessage = {message:response.data.message,type:1};
+                                    $rootScope.notifyMessage = {message:response.message,type:1};
                                 }
                             }).error(function () {
                                 $rootScope.notifyMessage = {message:'Энэ өгөгдлийг устгах боломжгүй',type:0};

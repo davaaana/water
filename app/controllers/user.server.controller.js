@@ -221,7 +221,7 @@ exports.getUsers = function (req, res) {
 };
 
 exports.deleteUser = function (req, res) {
-    req.pg.query("SELECT * FROM \"user\" WHERE username = $1", [user.username], function (err, rst) {
+    req.pg.query("SELECT * FROM \"user\" WHERE username = $1", [req.params.id], function (err, rst) {
         if (err) {
             console.log(err);
             return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
