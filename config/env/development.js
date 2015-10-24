@@ -22,14 +22,16 @@ module.exports = {
                 'public/lib/angular-block-ui/dist/angular-block-ui.min.css'
             ],
             js: [
-                //'public/vendors/js/highcharts.js',
-                //'public/vendors/js/highcharts-3d.js',
                 'public/vendors/js/jquery.min.js',
-                //'public/vendors/js/exporting.js',
+                'public/vendors/js/highcharts.js',
+                'public/vendors/js/highcharts-3d.js',
+                //'public/lib/highcharts-ng/dist/highchart-ng.min.js',
+
+                'public/vendors/js/exporting.js',
                 'public/lib/bootstrap/dist/js/bootstrap.min.js',
                 'public/lib/angular/angular.js',
                 'public/lib/angular/angular.min.js',
-                //'public/lib/angular-ui-utils/ui-utils.js',
+                'public/lib/angular-ui-utils/ui-utils.js',
                 'public/lib/angular-resource/angular-resource.js',
                 'public/lib/angular-animate/angular-animate.js',
                 'public/lib/angular-animate/angular-animate.min.js',
@@ -40,7 +42,7 @@ module.exports = {
                 'public/lib/ng-ckeditor/libs/ckeditor/ckeditor.js',
                 'public/lib/angular-ui-router/release/angular-ui-router.js',
                 'public/lib/ng-ckeditor/ng-ckeditor.js',
-                //'public/lib/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js',
+                'public/lib/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js',
                 'public/lib/angular-block-ui/dist/angular-block-ui.min.js'
             ]
         },
