@@ -183,7 +183,7 @@
 }
 
 .news-img-1 {
-    height: 250px;
+
     width: 400px;
 }
 
@@ -315,7 +315,9 @@
     padding-bottom: 10px;
 }
 
-
+.more-img img{
+ max-width: 600px;
+}
 
 .main {
     background: white;
