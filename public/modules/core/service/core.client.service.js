@@ -49,6 +49,18 @@ angular.module('core').factory('coreUserSrv', function ($http) {
                 return response.data;
             });
             return promise;
+        },
+        generateCaptcha: function () {
+            var promise = $http.get('/captcha').then(function (response) {
+                return response.data;
+            });
+            return promise;
+        },
+        sendFeed: function (model) {
+            var promise = $http.post('/feedback',model).then(function (response) {
+                return response.data;
+            });
+            return promise;
         }
     };
 });

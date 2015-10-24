@@ -118,7 +118,19 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                САНАЛ ХҮСЭЛТ
+                <fieldset >
+                    <legend>Таны хүсэлт</legend>
+                    <form>
+                        <input class="form-control" data-ng-model="feed.name" placeholder="Нэр">
+                        <input class="form-control" data-ng-model="feed.email" placeholder="И-мэйл">
+                        <input class="form-control" data-ng-model="feed.phone" placeholder="Утас">
+                        <textarea class="form-control" data-ng-model="feed.description" placeholder="Тайлбар"></textarea>
+                        <img src="/captcha" id="captcha">
+                        <input type="text" class="form-control" placeholder="Дээр харуулсан кодыг оруулна уу" data-ng-model="feed.captcha">
+                        <button data-ng-click="generateCaptcha()">дахин код дуудах</button>
+                        <input class="form-control" type="button" data-ng-click="sendFeed(feed)" value="Илгээх">
+                    </form>
+                </fieldset>
             </div>
         </div>
     </div>

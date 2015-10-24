@@ -12,4 +12,9 @@ module.exports = function(app) {
 	app.route('/chartContent').get(u,a,core.chartContent);
 	app.route('/chartUser').get(u,a,core.chartUser);
 	app.route('/lastContents').get(u,a,core.lastContents);
+	app.route('/captcha').get(core.generateCaptcha);
+	app.route('/captcha/:text').post(core.checkCaptcha);
+	app.route('/feedback').post(core.feedback);
+	app.route('/feedback').get(u,a,core.getFeedbacks);
+	app.route('/feedbackRes').post(core.sentFeed);
 };

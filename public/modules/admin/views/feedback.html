@@ -1,0 +1,67 @@
+<div data-ng-init="getFeedback()">
+
+    <div style="height: 50px">
+        <div class="title">
+            Мэдээ мэдээллийн тохиргоо
+        </div>
+        <button data-ng-click="addModalContent()" class="add btn btn-primary btn-sm">Мэдээлэл нэмэх</button>
+    </div>
+
+    <div class="div-border">
+        <table class="table-list">
+            <thead>
+            <tr style="background: #006bb7">
+                <td class="center-td-title">Нэр</td>
+                <td class="center-td-title">И-мэйл</td>
+                <td class="center-td-title">Утас</td>
+                <td class="center-td-title">Санал</td>
+                <td class="center-td-title">Хаяг</td>
+                <td class="center-td-title">Хариу өгсөн эсэх</td>
+                <td class="center-td-title">Хариу өгсөн тайлбар</td>
+                <td class="center-td-title" style="width: 80px;">Засах</td>
+                <td class="center-td-title" style="width: 80px;">Устгах</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-repeat="feed in feedbacks">
+                <td class="center-td">{{feed.name}}</td>
+                <td class="center-td">{{feed.email}}</td>
+                <td class="center-td">{{feed.phone}}</td>
+                <td class="center-td">{{feed.description}}</td>
+                <td class="center-td">{{feed.ip}}</td>
+                <td class="center-td">{{feed.res == true ? 'Хариу явуулсан' : 'Хариу явуулаагүй'}}</td>
+                <td class="center-td">{{feed.res_description}}</td>
+                <td class="center-td">
+                    <button data-ng-click="sendModalShow(feed)" class="btn btn-default btn-sm">Засах</button>
+                </td>
+                <td class="center-td">
+                    <button data-ng-click="deleteContent(content.id)" class="btn btn-danger btn-sm">Устгах</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div id="feed" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 style="color: #000000">{{title_edit}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <input type="text" class="form-control" data-ng-model="answer.question" placeholder="Асуулт" disabled>
+                    <textarea name="detail" ng-model="answer.answer"
+                              placeholder="Хариулт"></textarea>
+                </div>
+                <center>
+                    <button data-ng-click="sendAnswer(answer)" class="btn btn-primary">Засах
+                    </button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>

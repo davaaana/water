@@ -29,6 +29,11 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider', '$locati
             url: '/category',
             templateUrl: 'modules/admin/views/category.html',
             controller:'CategoryController'
-        });
+        }).
+            state('admin.feedback', {
+                url: '/feedback',
+                templateUrl: 'modules/admin/views/feedback.html',
+                controller:'FeedbackController'
+            });
 	}
 ]);
