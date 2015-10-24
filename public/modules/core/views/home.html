@@ -57,13 +57,16 @@
                         </div>
                         <div>
                             <div class="content-title">
-                                <span data-ng-click="getContent(content.id)">{{content.title}}</span>
+                                <span data-ng-click="getContent(content.id)" class="link">{{content.title}}</span>
                             </div>
                             <div class="font-gray">
-                                {{content.created_date | date : 'yyyy-MM-dd'}}
+                                {{content.created_date | date : 'yyyy оны MM-р сарын dd'}}
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="padding-top-5">
+                     <span data-ng-click="getContent(content.id)" class="link bold-600 ">Цааш дэлгэрэнгүй ></span>
                 </div>
             </div>
             <div class="col-lg-6">
