@@ -1,13 +1,14 @@
-<div class="row" style="background: #ecebe6; padding: 10px 0;  margin: 10px 0">
-    <div class="col-lg-9">
+
         <div class="row">
             <div class="col-lg-12">
                 <div style="height: 305px">
                     <carousel interval="20000">
                         <slide ng-repeat="slide in slides">
                             <img ng-src="{{slide.image}}" style="margin:auto;height: 300px; width: 850px">
+
                             <div class="carousel-caption slide-bg">
                                 <h4 class="slide-title">{{slide.title | limitTo: 23 }}</h4>
+
                                 <p class="slide-content"> {{slide.content | limitTo: 240 }}</p>
                             </div>
                         </slide>
@@ -35,7 +36,7 @@
                     <tab select="alertMe()">
                         <tab-heading>
                             Хөгжүүлгч
-                        <!--    <i class="glyphicon glyphicon-bell"></i> Alert!-->
+                            <!--    <i class="glyphicon glyphicon-bell"></i> Alert!-->
                         </tab-heading>
                         I've got an HTML heading, and a select callback. Pretty cool!
                     </tab>
@@ -69,70 +70,11 @@
 
                 <div class="title"> {{homeContents[0].title}}</div>
                 <img ng-src="{{homeContents[0].image}}" class="news-img-1">
+
                 <div>
                     {{homeContents[0].content}}
                 </div>
             </div>
         </div>
 
-    </div>
-    <div class="col-lg-3">
-        <div class="row">
-            <div class="col-lg-12">
-                <div data-ng-include="'modules/core/views/login.html'"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                Үйл ажиллагаа
-                <tabset class="main-tab">
-                    <tab heading="Болох">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                Мэдээ
-                            </div>
-                            <div class="col-lg-6">
-                                Зааварчилгаа
-                            </div>
-                        </div>
-                    </tab>
-                    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
-                        {{tab.content}}
-                    </tab>
-                    <tab select="alertMe()">
-                        <tab-heading>
-                            Болсон
-                            <!--    <i class="glyphicon glyphicon-bell"></i> Alert!-->
-                        </tab-heading>
-                        I've got an HTML heading, and a select callback. Pretty cool!
-                    </tab>
-                </tabset>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <img src="../../../img/site/banner/banner1.jpg" class="banner"/>
-                <img src="../../../img/site/banner/banner2.jpg" class="banner"/>
-                <img src="../../../img/site/banner/banner3.jpg" class="banner"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <fieldset >
-                    <legend>Таны хүсэлт</legend>
-                    <form>
-                        <input class="form-control" data-ng-model="feed.name" placeholder="Нэр">
-                        <input class="form-control" data-ng-model="feed.email" placeholder="И-мэйл">
-                        <input class="form-control" data-ng-model="feed.phone" placeholder="Утас">
-                        <textarea class="form-control" data-ng-model="feed.description" placeholder="Тайлбар"></textarea>
-                        <img src="/captcha" id="captcha">
-                        <input type="text" class="form-control" placeholder="Дээр харуулсан кодыг оруулна уу" data-ng-model="feed.captcha">
-                        <button data-ng-click="generateCaptcha()">дахин код дуудах</button>
-                        <input class="form-control" type="button" data-ng-click="sendFeed(feed)" value="Илгээх">
-                    </form>
-                </fieldset>
-            </div>
-        </div>
-    </div>
-</div>
 

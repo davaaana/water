@@ -1,7 +1,56 @@
-<div id="innerwrap">
+<div id="user-innerwrap">
     <div class="container">
         <div data-ng-include="'modules/core/views/menu.html'"></div>
-        <div ui-view=""></div>
+        <div class="row"  style=" padding: 10px 0;  margin: 10px 0; background: white">
+            <div class="col-lg-9">
+                <div ui-view="" class="main"></div>
+            </div>
+            <div class="col-lg-3">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div data-ng-include="'modules/core/views/login.html'"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <img src="../../../img/site/banner/banner1.jpg" class="banner"/>
+                        <img src="../../../img/site/banner/banner2.jpg" class="banner"/>
+                        <img src="../../../img/site/banner/banner3.jpg" class="banner"/>
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 10px">
+
+                    <div class="col-lg-12">
+                        <span class="module-title">Таны хүсэлт</span>
+
+                        <div class="feedback">
+                            <form class="form-horizontal user-form ">
+                                <input class="form-control no-border-radius" data-ng-model="feed.name"
+                                       placeholder="Нэр">
+                                <input class="form-control no-border-radius" data-ng-model="feed.email"
+                                       placeholder="И-мэйл">
+                                <input class="form-control no-border-radius" data-ng-model="feed.phone"
+                                       placeholder="Утас">
+                                <textarea class="form-control no-border-radius" data-ng-model="feed.description"
+                                          placeholder="Тайлбар"></textarea>
+                                <img src="/captcha" id="captcha">
+                                <input type="text" class="form-control no-border-radius"
+                                       placeholder="Дээр харуулсан кодыг оруулна уу"
+                                       data-ng-model="feed.captcha">
+                                <button data-ng-click="generateCaptcha()"
+                                        class="re-captcha no-border-radius btn-default">
+                                    дахин код дуудах
+                                </button>
+                                <input class="form-control no-border-radius btn-primary" type="button"
+                                       data-ng-click="sendFeed(feed)" value="Илгээх">
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div data-ng-include="'modules/core/views/footer.html'"></div>
 </div>

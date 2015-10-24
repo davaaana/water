@@ -1,5 +1,10 @@
-#innerwrap {
+#user-innerwrap {
     color: #0087cb;
+    background: #d0cfca;
+    background: -webkit-linear-gradient(top left, #d0cfca 0%, white 100%);
+
+    background: linear-gradient(top right, #d0cfca 0%, white 100%);
+    background: linear-gradient(to top left, #d0cfca 0%, white 100%);
 }
 
 .blog-footer {
@@ -246,25 +251,29 @@
 .login-tab > ul > li.active > a, .login-tab > ul li.active > a:focus, .login-tab > ul li.active > a:hover {
     font-weight: bold;
 
-
 }
 
 .login-tab > ul > li {
     background: #00438a;
+}
+
+.feedback {
+    background: #0087cb;
+    padding: 10px;
 
 }
 
 .login-tab > ul > li > a {
-    color:white;
+    color: white;
 }
-.nav-tabs{
+
+.nav-tabs {
     margin-left: 5px;
 }
 
 .main-tab > ul > li.active > a, .main-tab > ul li.active > a:focus, .main-tab > ul li.active > a:hover {
     font-weight: bold;
     background: #d7d3c7;
-
 
 }
 
@@ -274,5 +283,40 @@
 }
 
 .main-tab > ul > li > a {
-    color:white;
+    color: white;
+}
+
+.main-tab .tab-content {
+    border: 1px solid #eceae4;
+}
+
+.module-title {
+    font-size: 20px;
+    color: slategray;
+}
+
+.re-captcha {
+    width: 235px;
+    padding: 5px;
+}
+
+.more-title {
+    font-size: 24px;
+}
+
+.more-date {
+    font-size: 13px;
+    color: slategrey;
+}
+
+.more-content img {
+    vertical-align: text-top;
+    float: left;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.main {
+    background: white;
+    margin-bottom: 10px;
 }
