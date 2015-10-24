@@ -309,12 +309,13 @@
     color: slategrey;
 }
 
-.more-content img {
-    vertical-align: text-top;
-    float: left;
-    padding-right: 10px;
+.more-img{
+    text-align: center;
+    padding-top: 10px;
     padding-bottom: 10px;
 }
+
+
 
 .main {
     background: white;

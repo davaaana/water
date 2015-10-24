@@ -60,7 +60,7 @@
                                 <span data-ng-click="getContent(content.id)">{{content.title}}</span>
                             </div>
                             <div class="font-gray">
-                                {{content.created_date}}
+                                {{content.created_date | date : 'yyyy-MM-dd'}}
                             </div>
                         </div>
                     </div>

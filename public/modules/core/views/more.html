@@ -1,10 +1,11 @@
 <div class="col-lg-12 main" ng-repeat="con in content">
 
     <div class="more-title">{{con.title}}</div>
-    <div class="more-date">{{con.created_date}}</div>
+    <div class="more-date">{{con.created_date  | date : 'yyyy-MM-dd'}}</div>
+    <div class="more-img"><img src="{{con.image}}"/></div>
     <div class="more-content">
-        <img src="{{con.image}}"/>
+
         {{con.content}}
 
     </div>
-
+</div>
