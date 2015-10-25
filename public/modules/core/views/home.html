@@ -9,7 +9,7 @@
                             <div class="carousel-caption slide-bg">
                                 <h4 class="slide-title">{{slide.title | limitTo: 23 }}</h4>
 
-                                <p class="slide-content"> {{slide.content | limitTo: 240 }}</p>
+                                <div class="slide-content" ng-bind-html="slide.content"></div>
                             </div>
                         </slide>
                     </carousel>
@@ -74,8 +74,7 @@
                 <div class="title"> {{homeContents[0].title}}</div>
                 <img ng-src="{{homeContents[0].image}}" class="news-img-1">
 
-                <div>
-                    {{homeContents[0].content}}
+                <div ng-bind-html="homeContents[0].content">
                 </div>
             </div>
         </div>

@@ -10,7 +10,6 @@ angular.module('core').controller('CoreController', ['$rootScope', '$scope', '$h
 
         $scope.getContent = function (id) {
             window.location.href = '#!/index/more?id=' + id;
-            window.location.reload();
         };
 
         $scope.searchContent = function (text) {

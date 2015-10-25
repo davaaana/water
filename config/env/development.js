@@ -32,6 +32,7 @@ module.exports = {
                 'public/lib/angular/angular.js',
                 'public/lib/angular/angular.min.js',
                 'public/lib/angular-ui-utils/ui-utils.js',
+                'public/lib/angular-sanitize/angular-sanitize.min.js',
                 'public/lib/angular-resource/angular-resource.js',
                 'public/lib/angular-animate/angular-animate.js',
                 'public/lib/angular-animate/angular-animate.min.js',
