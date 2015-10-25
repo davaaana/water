@@ -104,10 +104,10 @@ exports.feedback = function (req, res) {
 
             });
         } else {
-            return res.status(400).json({message: 'Зурган код буруу байна', success: 0});
+            return res.status(201).json({message: 'Зурган код буруу байна', success: 0});
         }
     } else {
-        return res.status(400).json({message: "Системд алдаа гарлаа. Session идэвхгүй байна.", success: 0});
+        return res.status(201).json({message: "Системд алдаа гарлаа. Session идэвхгүй байна.", success: 0});
     }
 };
 

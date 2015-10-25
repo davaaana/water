@@ -58,7 +58,7 @@ angular.module('core').factory('coreUserSrv', function ($http) {
         },
         sendFeed: function (model) {
             var promise = $http.post('/feedback',model).then(function (response) {
-                return response.data;
+                return response;
             });
             return promise;
         }

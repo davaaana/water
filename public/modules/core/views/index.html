@@ -28,17 +28,18 @@
 
                         <div class="feedback">
                             <form class="form-horizontal user-form ">
-                                <input class="form-control no-border-radius" data-ng-model="feed.name"
+                                <input class="form-control no-border-radius" id="feedName" data-ng-model="feed.name"
                                        placeholder="Нэр">
-                                <input class="form-control no-border-radius" data-ng-model="feed.email"
+                                <input class="form-control no-border-radius" id="feedEmail" data-ng-model="feed.email"
                                        placeholder="И-мэйл">
-                                <input class="form-control no-border-radius" data-ng-model="feed.phone"
+                                <input class="form-control no-border-radius" id="feedPhone" data-ng-model="feed.phone"
                                        placeholder="Утас">
-                                <textarea class="form-control no-border-radius" data-ng-model="feed.description"
+                                <textarea class="form-control no-border-radius" id="feedDescription" data-ng-model="feed.description"
                                           placeholder="Тайлбар"></textarea>
                                 <img src="/captcha" id="captcha">
                                 <input type="text" class="form-control no-border-radius"
                                        placeholder="Дээр харуулсан кодыг оруулна уу"
+                                       id="feedCaptcha"
                                        data-ng-model="feed.captcha">
                                 <button data-ng-click="generateCaptcha()"
                                         class="re-captcha no-border-radius btn-default">

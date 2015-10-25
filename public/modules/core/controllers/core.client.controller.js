@@ -22,9 +22,45 @@ angular.module('core').controller('CoreController', ['$rootScope', '$scope', '$h
         }
 
         $scope.sendFeed = function (model) {
-            coreUserSrv.sendFeed(model).then(function (res) {
-                console.log(res);
-            });
+            var form = true;
+            if(model == undefined){
+                $("#feedName").css('border','2px solid red');
+                $("#feedDescription").css('border','2px solid red');
+                $("#feedEmail").css('border','2px solid red');
+                $("#feedCaptcha").css('border','2px solid red');
+            }
+            if(model.name == undefined || !model.name){
+                $("#feedName").css('border','2px solid red');
+                form = false;
+            }
+
+            if(model.description == undefined && !model.description){
+                $("#feedDescription").css('border','2px solid red');
+                form = false;
+            }
+
+            if(!model.email){
+                $("#feedEmail").css('border','2px solid red');
+                form = false;
+            }
+
+            if(!model.captcha){
+                $("#feedCaptcha").css('border','2px solid red');
+                form = false;
+            }
+
+            if(form){
+                $('input').css('border','1px solid blue');
+                coreUserSrv.sendFeed(model).then(function (res) {
+                    if(res.status == 200)
+                        $scope.feed = {};
+                    $rootScope.notifyMessage = {message:res.data.message,type:1};
+                });
+            }else{
+                $rootScope.notifyMessage = {message:'Та улаанаар хүрээлсэн хэсгүүдийг бөглөнө үү?',type:0}
+                return
+            }
+
         }
     }
 
