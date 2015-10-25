@@ -40,7 +40,7 @@ exports.getContentSearch = function(req, res) {
     var query = 'SELECT * FROM content';
 
     if(req.query.search){
-        query += ' WHERE content LIKE \'%'+req.query.search+'%\' OR title LIKE \'%'+req.query.search+'%\' ';
+        query += ' WHERE LOWER(content) LIKE LOWER(\'%'+req.query.search+'%\') OR LOWER(title) LIKE LOWER(\'%'+req.query.search+'%\') ';
     }
 
     req.pg.query(query, function (err, result) {

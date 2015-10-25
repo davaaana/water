@@ -9,19 +9,13 @@ angular.module('core').controller('CoreController', ['$rootScope', '$scope', '$h
         });
 
         $scope.getContent = function (id) {
-            coreUserSrv.getContent(id).then(function (data) {
-                $scope.contentMore = data;
-                window.location.href = '#!/index/more'
-            })
+            window.location.href = '#!/index/more?id=' + id;
+            window.location.reload();
         };
 
         $scope.searchContent = function (text) {
-            coreUserSrv.searchContents(text).then(function (res) {
-                $scope.contentMore = res;
-                $scope.$$childHead.content = res;
-                console.log($scope);
-                window.location.href = '#!/index/more'
-            });
+            window.location.href = '#!/index/more?search=' + text;
+            window.location.reload();
         }
     }
 

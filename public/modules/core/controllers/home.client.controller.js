@@ -38,6 +38,8 @@ angular.module('core').controller('HomeController', ['$rootScope', '$scope','$ht
                 console.log(res);
             });
         }
+
+
     }
 
 ]);
