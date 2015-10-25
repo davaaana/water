@@ -16,6 +16,16 @@ angular.module('core').controller('CoreController', ['$rootScope', '$scope', '$h
             window.location.href = '#!/index/more?search=' + text;
             window.location.reload();
         }
+
+        $scope.generateCaptcha = function () {
+            $("#captcha").attr("src", "/captcha?" + (new Date()).getTime());
+        }
+
+        $scope.sendFeed = function (model) {
+            coreUserSrv.sendFeed(model).then(function (res) {
+                console.log(res);
+            });
+        }
     }
 
 ]);

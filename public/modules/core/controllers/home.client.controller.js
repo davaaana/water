@@ -30,18 +30,6 @@ angular.module('core').controller('HomeController', ['$rootScope', '$scope','$ht
         $scope.searchContent = function (text) {
             $scope.$parent.searchContent(text);
         }
-
-        $scope.generateCaptcha = function () {
-            $("#captcha").attr("src", "/captcha?" + (new Date()).getTime());
-        }
-
-        $scope.sendFeed = function (model) {
-            coreUserSrv.sendFeed(model).then(function (res) {
-                console.log(res);
-            });
-        }
-
-
     }
 
 ]);
