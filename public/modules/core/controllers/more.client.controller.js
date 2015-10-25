@@ -15,9 +15,15 @@ angular.module('core').controller('MoreController', ['$rootScope', '$scope','$ht
                $scope.content = data;
             });
         }else if(location.$$search.search != ''){
-            $rootScope.searchText = location.$$search.search;
-            coreUserSrv.searchContents(location.$$search.search).then(function (data) {
-                $scope.content = data;
+            $scope.searchToText = location.$$search.search;
+            coreUserSrv.searchContents(location.$$search.search).then(function (data,status) {
+                if(data.status == 201)
+                    $scope.resultText = data.data.message;
+                else{
+                    $scope.content = data.data;
+                    $scope.resultText = $scope.content.length;
+                }
+
             })
         }
 

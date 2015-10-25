@@ -28,7 +28,7 @@ angular.module('core').factory('coreUserSrv', function ($http) {
         },
         searchContents: function (text) {
             var promise = $http.get('/contentSearch?search='+text).then(function (response) {
-                return response.data;
+                return response;
             });
             return promise;
         },
