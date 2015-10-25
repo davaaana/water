@@ -8,3 +8,8 @@
     <div class="more-content" ng-bind-html="con.content">
     </div>
 </div>
+<nav>
+    <ul class="pagination"  data-ng-repeat="p in pageNumber">
+        <li data-ng-click="pageChange(p)">{{p+1}}</li>
+    </ul>
+</nav>

@@ -15,7 +15,11 @@ angular.module('core').controller('CoreController', ['$rootScope', '$scope', '$h
         $scope.searchContent = function (text) {
             window.location.href = '#!/index/more?search=' + text;
             window.location.reload();
-        }
+        };
+
+        $scope.moreContent = function () {
+            window.location.href = '#!/index/more?more=true';
+        };
 
         $scope.generateCaptcha = function () {
             $("#captcha").attr("src", "/captcha?" + (new Date()).getTime());

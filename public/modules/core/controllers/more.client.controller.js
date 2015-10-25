@@ -7,8 +7,10 @@ angular.module('core').controller('MoreController', ['$rootScope', '$scope','$ht
             slide:6,
             home:1
         };
+        $scope.pageNumber = [];
+        $scope.page = 0;
 
-        console.log($scope);
+        console.log(location);
 
         if(location.$$search.id){
             coreUserSrv.getContent(location.$$search.id).then(function (data) {
@@ -26,6 +28,22 @@ angular.module('core').controller('MoreController', ['$rootScope', '$scope','$ht
 
             })
         }
+        if(location.$$search.more){
+            alert('true')
+            coreUserSrv.getContents('',$scope.page,10).then(function (res) {
+                $scope.content = res.data;
+                $scope.totalCount = res.count;
+                for(var i = 0;i < res.count/10;i++){
+                    $scope.pageNumber.push(i);
+                }
+            });
+        }
 
+        $scope.pageChange = function (el) {
+            coreUserSrv.getContents('',el,10).then(function (response) {
+                $scope.content = response.data;
+                $scope.totalCount = response.count;
+            })
+        };
     }
 ]);
