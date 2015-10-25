@@ -51,6 +51,7 @@ angular.module('core').controller('CoreController', ['$rootScope', '$scope', '$h
 
             if(form){
                 $('input').css('border','1px solid blue');
+                $('textarea').css('border','1px solid blue');
                 coreUserSrv.sendFeed(model).then(function (res) {
                     if(res.status == 200)
                         $scope.feed = {};
