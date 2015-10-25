@@ -32,21 +32,29 @@ angular.module('core').controller('CoreController', ['$rootScope', '$scope', '$h
             if(model.name == undefined || !model.name){
                 $("#feedName").css('border','2px solid red');
                 form = false;
+            }else{
+                $("#feedName").css('border','1px solid blue');
             }
 
             if(model.description == undefined && !model.description){
                 $("#feedDescription").css('border','2px solid red');
                 form = false;
+            }else{
+                $("#feedDescription").css('border','1px solid blue');
             }
 
             if(!model.email){
                 $("#feedEmail").css('border','2px solid red');
                 form = false;
+            }else{
+                $("#feedEmail").css('border','1px solid blue');
             }
 
             if(!model.captcha){
                 $("#feedCaptcha").css('border','2px solid red');
                 form = false;
+            }else{
+                $("#feedCaptcha").css('border','1px solid blue');
             }
 
             if(form){
