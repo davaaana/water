@@ -29,7 +29,13 @@ angular.module('admin').factory('AdminContentSrv', function ($http) {
                 transformRequest: function (data) {
                     var formData = new FormData();
                     formData.append('content', angular.toJson(content));
-                    formData.append('file', image[0]);
+
+
+                    if(image[0]!=undefined){
+                        formData.append('file', image[0]);
+                    }
+                    console.log(formData);
+
                     return formData;
                 }
             }).success(function (err,response) {

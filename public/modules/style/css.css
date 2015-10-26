@@ -331,8 +331,15 @@
 .padding-top-5{
     padding-top: 5px;
 }
-
+.txt-center{
+   width: 70px;
+}
 .search{
     font-size: 15px;
     color:gray;
+}
+
+.f-left input{
+    margin: 5px;
+    text-align: left;
 }

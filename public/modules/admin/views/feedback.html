@@ -2,9 +2,9 @@
 
     <div style="height: 50px">
         <div class="title">
-            Мэдээ мэдээллийн тохиргоо
+           Санал хүсэлтийн жагсаалт
         </div>
-        <button data-ng-click="addModalContent()" class="add btn btn-primary btn-sm">Мэдээлэл нэмэх</button>
+
     </div>
 
     <div class="div-border">
@@ -45,17 +45,17 @@
 </div>
 
 <div id="feed" class="modal fade">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="color: black">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 style="color: #000000">{{title_edit}}</h4>
             </div>
             <div class="modal-body">
-                <div class="container">
+                <div>
                     <input type="text" class="form-control" data-ng-model="answer.question" placeholder="Асуулт" disabled>
                     <textarea name="detail" ng-model="answer.answer"
-                              placeholder="Хариулт"></textarea>
+                              placeholder="Хариулт" cols="91"></textarea>
                 </div>
                 <center>
                     <button data-ng-click="sendAnswer(answer)" class="btn btn-primary">Засах

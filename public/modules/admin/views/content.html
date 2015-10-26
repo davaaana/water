@@ -42,15 +42,15 @@
                 <td colspan="2">Нийт агуулга: {{totalCount}}</td>
                 <td colspan="6" style="text-align: center">
                     <nav>
-                        <ul class="pagination"  data-ng-repeat="p in pageNumber">
+                        <ul class="pagination" data-ng-repeat="p in pageNumber">
                             <li data-ng-click="pageChange(p)">{{p+1}}</li>
                         </ul>
                     </nav>
                 </td>
             </tr>
-           <!-- <tr>
-                <td colspan="9"><ul data-ng-repeat="p in pageNumber"><li data-ng-click="pageChange(p)">{{p+1}}</li></ul></td>
-            </tr>-->
+            <!-- <tr>
+                 <td colspan="9"><ul data-ng-repeat="p in pageNumber"><li data-ng-click="pageChange(p)">{{p+1}}</li></ul></td>
+             </tr>-->
             </tfoot>
         </table>
 
@@ -65,13 +65,50 @@
                 <h4 style="color: #000000">{{title_edit}}</h4>
             </div>
             <div class="modal-body" data-ng-init="getCategories()">
-                <div class="container">
-                    <input type="text" class="form-control" data-ng-model="content.title" placeholder="Гарчиг">
-                    <textarea ckeditor="editorOptions" name="detail" ng-model="content.content"
-                              placeholder="Агуулга"></textarea>
-                    <select class="form-control" data-ng-model="content.category_id"
-                            ng-options="category.id as category.name for category in categories"></select>
-                    <input type="file" accept="image/*" file-upload>
+                <div style="color:#000000">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Гарчиг
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="text" class="form-control" data-ng-model="content.title" placeholder="Гарчиг">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Мэдээний агуулга
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea ckeditor="editorOptions" name="detail" ng-model="content.content"
+                                      placeholder="Агуулга" cols="91" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Мэдээний бүлэг
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <select class="form-control" data-ng-model="content.category_id"
+                                    ng-options="category.id as category.name for category in categories"></select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Зураг
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="file" accept="image/*" file-upload>
+                        </div>
+                    </div>
+
                 </div>
                 <center>
                     <button data-ng-click="updateContent()" data-ng-show="updateBtn" class="btn btn-primary">Засах
