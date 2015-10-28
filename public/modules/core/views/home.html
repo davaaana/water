@@ -1,114 +1,140 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div style="height: 305px">
+            <carousel interval="20000">
+                <slide ng-repeat="slide in slides">
+                    <img ng-src="{{slide.image}}" style="margin:auto;height: 300px; width: 850px">
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div style="height: 305px">
-                    <carousel interval="20000">
-                        <slide ng-repeat="slide in slides">
-                            <img ng-src="{{slide.image}}" style="margin:auto;height: 300px; width: 850px">
+                    <div class="carousel-caption slide-bg">
+                        <h4 class="slide-title">{{slide.title | limitTo: 40 }}</h4>
 
-                            <div class="carousel-caption slide-bg">
-                                <h4 class="slide-title">{{slide.title | limitTo: 40 }}</h4>
-
-                                <div class="slide-content" ng-bind-html="slide.content"></div>
-                            </div>
-                        </slide>
-                    </carousel>
-                </div>
-            </div>
+                        <div class="slide-content" ng-bind-html="slide.content"></div>
+                    </div>
+                </slide>
+            </carousel>
         </div>
+    </div>
+</div>
 
-        <div class="row" style="padding-bottom: 20px; padding-top: 10px">
-            <div class="col-lg-12">
-                <tabset class="main-tab">
-                    <tab heading="Мэдээллийн сан">
+<div class="row" style="padding-bottom: 20px; padding-top: 10px">
+    <div class="col-lg-12">
+        <tabset class="main-tab">
+            <tab heading="Мэдээллийн сан">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row" style="padding-bottom: 8px">
+                            <div class="col-lg-12">
+                                <div class="fl-left">
+
+                                    <img src="/img/not-image.gif" class="news-img"/>
+                                </div>
+                                <div>
+                                    <div class="content-title">
+                                        <span data-ng-click="getContent(content.id)" class="link">Мэдээллийн сангийн видео зааврыг эндээс та бүхэн үзэх боломжтой</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
-                            <div class="col-lg-6">
-                                Мэдээ
-                            </div>
-                            <div class="col-lg-6">
-                                <div style="color: black; font-weight: 600; padding-bottom: 15px; border-bottom: 1px solid darkgray">Зааварчилгаа</div>
-                                <ul>
-                                    <li>
-                                        1-р алхам - Системд нэвтрэх
-                                    </li>
-                                    <li>
-                                        2-р алхам - Мэдээлэлтэй танилцах
-                                    </li>
-                                    <li>
-                                        3-р алхам - Мэдээлэл оруулах
-                                    </li>
-                                    <li>
-                                        4-р алхам - Бусад алхам
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                            <div class="col-lg-12">
+                                <div class="fl-left">
 
-
-                    </tab>
-                    <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
-                        {{tab.content}}
-                    </tab>
-                    <tab select="alertMe()">
-                        <tab-heading>
-                            Хөгжүүлгч
-                            <!--    <i class="glyphicon glyphicon-bell"></i> Alert!-->
-                        </tab-heading>
-                       Одоогоор мэдээлэл байхгүй байна
-                    </tab>
-                </tabset>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="line-border-vr-top">
-                    <div class="news-title">Шинэ мэдээ</div>
-                </div>
-                <div ng-repeat="content in lastContents">
-                    <div class="news padding-5">
-                        <div class="fl-left">
-                            <img data-ng-show="content.image != ''" src="{{content.image}}" class="news-img"/>
-                            <img data-ng-hide="content.image != ''" src="/img/not-image.gif" class="news-img"/>
-                        </div>
-                        <div>
-                            <div class="content-title">
-                                <span data-ng-click="getContent(content.id)" class="link">{{content.title}}</span>
-                            </div>
-                            <div class="font-gray">
-                                {{content.created_date | date : 'yyyy оны MM-р сарын dd'}}
+                                    <img src="/img/not-image.gif" class="news-img"/>
+                                </div>
+                                <div>
+                                    <div class="content-title">
+                                        <span data-ng-click="getContent(content.id)" class="link">Мэдээллийн сангийн видео зааврыг эндээс та бүхэн үзэх боломжтой</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="padding-top-5">
-                     <span data-ng-click="moreContent()" class="link bold-600 ">Цааш дэлгэрэнгүй ></span>
-                </div>
-            </div>
-            <div class="col-lg-6">
-
-                <div class="title"> {{postContents[0].title}}</div>
-                <img ng-src="{{postContents[0].image}}" class="news-img-1">
-
-                <div class="content-body" ng-bind-html="postContents[0].content">
-
-
-                <!--<div ng-repeat="content in postContents">
-                    <div class="news padding-5">
-                        <div class="fl-left">
-                            <img ng-src="{{content.image}}" class="news-img">
+                    <div class="col-lg-6">
+                        <div style="color: black; font-weight: 600; padding-bottom: 6px; border-bottom: 1px solid darkgray;     margin-bottom: 6px;">
+                            Зааварчилгаа
                         </div>
-                        <div>
-                            <div class="content-title">
-                                <span data-ng-click="getContent(content.id)" class="link">{{content.title}}</span>
-                            </div>
-                            <div class="font-gray">
-                                {{content.created_date | date : 'yyyy оны MM-р сарын dd'}}
-                            </div>
-                        </div>
+                        <ul>
+                            <li>
+                                1-р алхам - Системд нэвтрэх
+                            </li>
+                            <li>
+                                2-р алхам - Мэдээлэлтэй танилцах
+                            </li>
+                            <li>
+                                3-р алхам - Мэдээлэл оруулах
+                            </li>
+                            <li>
+                                4-р алхам - Бусад алхам
+                            </li>
+                        </ul>
                     </div>
-                </div>-->
+                </div>
+
+
+            </tab>
+            <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+                {{tab.content}}
+            </tab>
+            <tab select="alertMe()">
+                <tab-heading>
+                    Хөгжүүлгч
+                    <!--    <i class="glyphicon glyphicon-bell"></i> Alert!-->
+                </tab-heading>
+                Одоогоор мэдээлэл байхгүй байна
+            </tab>
+        </tabset>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="line-border-vr-top">
+            <div class="news-title">Шинэ мэдээ</div>
+        </div>
+        <div ng-repeat="content in lastContents">
+            <div class="news padding-5">
+                <div class="fl-left">
+                    <img data-ng-show="content.image != ''" src="{{content.image}}" class="news-img"/>
+                    <img data-ng-hide="content.image != ''" src="/img/not-image.gif" class="news-img"/>
+                </div>
+                <div>
+                    <div class="content-title">
+                        <span data-ng-click="getContent(content.id)" class="link">{{content.title}}</span>
+                    </div>
+                    <div class="font-gray">
+                        {{content.created_date | date : 'yyyy оны MM-р сарын dd'}}
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="padding-top-5">
+            <span data-ng-click="moreContent()" class="link bold-600 ">Цааш дэлгэрэнгүй ></span>
+        </div>
+    </div>
+    <div class="col-lg-6">
+
+        <div class="title"> {{postContents[0].title}}</div>
+        <img ng-src="{{postContents[0].image}}" class="news-img-1">
+
+        <div class="content-body" ng-bind-html="postContents[0].content">
+
+
+            <!--<div ng-repeat="content in postContents">
+                <div class="news padding-5">
+                    <div class="fl-left">
+                        <img ng-src="{{content.image}}" class="news-img">
+                    </div>
+                    <div>
+                        <div class="content-title">
+                            <span data-ng-click="getContent(content.id)" class="link">{{content.title}}</span>
+                        </div>
+                        <div class="font-gray">
+                            {{content.created_date | date : 'yyyy оны MM-р сарын dd'}}
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
 
 
