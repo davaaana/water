@@ -7,7 +7,7 @@
                             <img ng-src="{{slide.image}}" style="margin:auto;height: 300px; width: 850px">
 
                             <div class="carousel-caption slide-bg">
-                                <h4 class="slide-title">{{slide.title | limitTo: 23 }}</h4>
+                                <h4 class="slide-title">{{slide.title | limitTo: 40 }}</h4>
 
                                 <div class="slide-content" ng-bind-html="slide.content"></div>
                             </div>
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-  <!--      <div class="row" style="padding-bottom: 20px; padding-top: 10px">
+        <div class="row" style="padding-bottom: 20px; padding-top: 10px">
             <div class="col-lg-12">
                 <tabset class="main-tab">
                     <tab heading="Мэдээллийн сан">
@@ -26,9 +26,25 @@
                                 Мэдээ
                             </div>
                             <div class="col-lg-6">
-                                Зааварчилгаа
+                                <div style="color: black; font-weight: 600; padding-bottom: 15px; border-bottom: 1px solid darkgray">Зааварчилгаа</div>
+                                <ul>
+                                    <li>
+                                        1-р алхам - Системд нэвтрэх
+                                    </li>
+                                    <li>
+                                        2-р алхам - Мэдээлэлтэй танилцах
+                                    </li>
+                                    <li>
+                                        3-р алхам - Мэдээлэл оруулах
+                                    </li>
+                                    <li>
+                                        4-р алхам - Бусад алхам
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+
+
                     </tab>
                     <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
                         {{tab.content}}
@@ -36,15 +52,14 @@
                     <tab select="alertMe()">
                         <tab-heading>
                             Хөгжүүлгч
-                            &lt;!&ndash;    <i class="glyphicon glyphicon-bell"></i> Alert!&ndash;&gt;
+                            <!--    <i class="glyphicon glyphicon-bell"></i> Alert!-->
                         </tab-heading>
-                        I've got an HTML heading, and a select callback. Pretty cool!
+                       Одоогоор мэдээлэл байхгүй байна
                     </tab>
                 </tabset>
 
             </div>
         </div>
--->
         <div class="row">
             <div class="col-lg-6">
                 <div class="line-border-vr-top">
