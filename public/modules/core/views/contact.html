@@ -5,8 +5,7 @@
         </div>
         <img ng-src="{{content.image}}" style="height: 120px; width: auto; float: left">
 
-        <div class="content-body">
-            {{content.content}}
+        <div class="content-body" ng-bind-html="content.content">
         </div>
     </div>
 </div>

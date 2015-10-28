@@ -1,15 +1,11 @@
-<div ng-repeat="content in pContents">
-    <div class="news padding-5">
-        <div class="fl-left">
-            <img ng-src="{{content.image}}" class="news-img">
-        </div>
-        <div>
-            <div class="content-title">
-                <span data-ng-click="getContent(content.id)">{{content.title}}</span>
-            </div>
-            <div class="font-gray">
-                {{content.created_date}}
-            </div>
-        </div>
+<div class="content-title-css">Төсөл хөтөлбөрүүд</div>
+
+<div class="col-lg-12 main" ng-repeat="content in pContents">
+
+    <div class="more-title">{{content.title}}</div>
+    <div class="more-date">{{content.created_date  | date : 'yyyy-MM-dd'}}</div>
+    <div class="more-img"><img src="{{content.image}}"/></div>
+    <div class="content-body" ng-bind-html="content.content">
     </div>
 </div>
+
