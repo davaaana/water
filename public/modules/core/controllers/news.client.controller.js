@@ -7,5 +7,12 @@ angular.module('core').controller('NewsController', ['$rootScope', '$scope','$ht
             slide:6,
             home:1
         };
+
+        $scope.homePage = 0;
+
+        coreUserSrv.getContents('Мэдээ мэдээлэл',$scope.homePage,10).then(function (res) {
+            $scope.contents = res.data;
+        });
+
     }
 ]);

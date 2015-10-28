@@ -43,6 +43,7 @@ module.exports = {
                 'public/lib/ng-ckeditor/libs/ckeditor/ckeditor.js',
                 'public/lib/angular-ui-router/release/angular-ui-router.js',
                 'public/lib/ng-ckeditor/ng-ckeditor.js',
+                'public/lib/ng-ckeditor/libs/ckeditor/ckeditor.js',
                 'public/lib/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js',
                 'public/lib/angular-block-ui/dist/angular-block-ui.min.js'
             ]

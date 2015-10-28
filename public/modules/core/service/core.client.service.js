@@ -20,8 +20,8 @@ angular.module('core').factory('coreUserSrv', function ($http) {
 
             return promise;
         },
-        getContents: function (categoryId, page, pageSize) {
-            var promise = $http.get('/contents?categoryId='+categoryId+'&page='+page+'&pageSize='+pageSize).then(function (response) {
+        getContents: function (categoryName, page, pageSize) {
+            var promise = $http.get('/contents?categoryName='+categoryName+'&page='+page+'&pageSize='+pageSize).then(function (response) {
                 return response.data;
             });
             return promise;

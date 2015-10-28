@@ -7,5 +7,10 @@ angular.module('core').controller('LawController', ['$rootScope', '$scope','$htt
             slide:6,
             home:1
         };
+
+        $scope.homePage = 0;
+        coreUserSrv.getContents('Хууль эрх зүй',$scope.homePage,10).then(function (res) {
+            $scope.lawContents = res.data;
+        });
     }
 ]);
