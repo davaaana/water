@@ -4,8 +4,10 @@
 
     <div class="more-title">{{con.title}}</div>
     <div class="more-date">{{con.created_date  | date : 'yyyy-MM-dd'}}</div>
-    <div class="more-img"><img src="{{con.image}}"/></div>
-    <div class="more-content" ng-bind-html="con.content">
+    <div class="more-img">
+        <img data-ng-show="con.image != ''" src="{{con.image}}"/>
+      </div>
+    <div class="content-body" ng-bind-html="con.content">
     </div>
 </div>
 <nav>

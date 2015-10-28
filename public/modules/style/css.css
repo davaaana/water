@@ -92,7 +92,7 @@
 }
 
 .width-220 {
-    width: 220px;
+    width: 235px;
 }
 
 .padding-15 {
@@ -301,7 +301,11 @@
 }
 
 .more-title {
-    font-size: 24px;
+    font-size: 18px;
+    border-bottom: #2A5EA8 solid 3px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    color: #2A5EA8;
 }
 
 .more-date {
