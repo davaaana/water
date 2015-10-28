@@ -1,14 +1,13 @@
 <div ng-repeat="content in contents">
     <div class="news padding-5">
-        <div class="fl-left">
-            <img ng-src="{{content.image}}" class="news-img">
-        </div>
         <div>
-            <div class="content-title">
+            <div class="content-title-css">
                 <span data-ng-click="getContent(content.id)">{{content.title}}</span>
             </div>
-            <div class="font-gray">
-                {{content.created_date}}
+            <img ng-src="{{content.image}}" style="height: 120px; width: auto; float: left">
+
+            <div class="content-body">
+                {{content.content}}
             </div>
         </div>
     </div>
