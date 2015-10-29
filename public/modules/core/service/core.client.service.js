@@ -39,7 +39,7 @@ angular.module('core').factory('coreUserSrv', function ($http) {
             return promise;
         },
         getLastContents: function () {
-            var promise = $http.get('/contents?page=0&pageSize=10').then(function (response) {
+            var promise = $http.get('/lastContents').then(function (response) {
                 return response.data;
             });
             return promise;

@@ -16,7 +16,7 @@ angular.module('core').controller('HomeController', ['$rootScope', '$scope','$ht
         });
 
         coreUserSrv.getLastContents().then(function (res) {
-           $scope.lastContents = res.data;
+           $scope.lastContents = res;
         });
 
         coreUserSrv.getContents(29,$scope.homePage,10).then(function (res) {
