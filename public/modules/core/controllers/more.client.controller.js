@@ -17,7 +17,7 @@ angular.module('core').controller('MoreController', ['$rootScope', '$scope','$ht
             coreUserSrv.getContent(location.$$search.id).then(function (data) {
                $scope.content = data;
             });
-        }else if(location.$$search.search != ''){
+        }else if(location.$$search.search && location.$$search.search != ''){
             $scope.searchToText = location.$$search.search;
             coreUserSrv.searchContents(location.$$search.search).then(function (data,status) {
                 $scope.sshow = true;
@@ -29,11 +29,9 @@ angular.module('core').controller('MoreController', ['$rootScope', '$scope','$ht
                 }
 
             })
-        }else{
-            $scope.sshow = false;
         }
-        if(location.$$search.more){
-            alert('true')
+        if(location.$$search.more=='true'){
+            $scope.sshow = false;
             coreUserSrv.getContents('',$scope.page,10).then(function (res) {
                 $scope.content = res.data;
                 $scope.totalCount = res.count;
