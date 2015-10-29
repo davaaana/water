@@ -25,7 +25,7 @@
             <tr data-ng-repeat="content in contents" style="height: 70px;overflow: hidden">
                 <td class="center-td"><img src="{{content.image}}" style="width: 50px;height: 50px"></td>
                 <td class="center-td">{{content.title | limitTo:200}}</td>
-                <td class="center-td">{{content.content | limitTo:200}}</td>
+                <td class="center-td" ng-binding-html="content.content | limitTo:200"></td>
                 <td class="center-td">{{getCategoryName(content.category_id)}}</td>
                 <td class="center-td">{{content.created_date | date: 'yyyy/MM/dd HH:mm:ss'}}</td>
                 <td class="center-td">{{content.user}}</td>
