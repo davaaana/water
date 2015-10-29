@@ -26,6 +26,7 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
 
         $scope.getContents = function () {
             ContentSrv.getContents('',0,5).then(function (response) {
+                $scope.pageNumber = [];
                 $scope.contents = response.data;
                 $scope.totalCount = response.count;
                 for(var i = 0;i < response.count/5;i++){
