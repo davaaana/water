@@ -5,6 +5,7 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
 
         $scope.pageNumber = [];
         $scope.addModalContent = function () {
+            $scope.content = {};
             $scope.title_edit='Нэмэх';
             $scope.updateBtn = false;
             $('#content').modal('show');
@@ -42,6 +43,7 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
         };
 
         $scope.updateModalContent = function (content) {
+            $scope.content = {};
             $scope.title_edit = 'Засах'
             $scope.content = content;
             $scope.updateBtn = true;
