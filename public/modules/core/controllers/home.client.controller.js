@@ -30,6 +30,10 @@ angular.module('core').controller('HomeController', ['$rootScope', '$scope','$ht
         $scope.searchContent = function (text) {
             $scope.$parent.searchContent(text);
         }
+
+        coreUserSrv.getContents('Онцлох мэдээ',0,10).then(function (res) {
+            $scope.postContents = res.data;
+        });
     }
 
 ]);

@@ -71,10 +71,20 @@
             </div>
             <div class="col-lg-6">
 
-                <div class="title"> {{homeContents[0].title}}</div>
-                <img ng-src="{{homeContents[0].image}}" class="news-img-1">
-
-                <div ng-bind-html="homeContents[0].content">
+                <div ng-repeat="content in postContents">
+                    <div class="news padding-5">
+                        <div class="fl-left">
+                            <img ng-src="{{content.image}}" class="news-img">
+                        </div>
+                        <div>
+                            <div class="content-title">
+                                <span data-ng-click="getContent(content.id)" class="link">{{content.title}}</span>
+                            </div>
+                            <div class="font-gray">
+                                {{content.created_date | date : 'yyyy оны MM-р сарын dd'}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
