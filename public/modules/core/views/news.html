@@ -1,14 +1,17 @@
 <div class="content-title-css">Мэдээ мэдээлэл</div>
 
-<div class="col-lg-12 main" ng-repeat="content in contents">
+<div data-ng-show="contents.length > 0" class="col-lg-12 main" ng-repeat="content in contents">
 
     <div class="more-title">{{content.title}}</div>
-    <div class="more-date">{{content.created_date  | date : 'yyyy-MM-dd'}}</div>
+    <div class="more-date">{{content.created_date | date : 'yyyy-MM-dd'}}</div>
     <div class="more-img"><img src="{{content.image}}"/></div>
     <div class="content-body" ng-bind-html="content.content">
     </div>
 </div>
 
+<div data-ng-hide="contents.length > 0">
+    Мэдээлэл алга байна
+</div>
 <!--
 <div ng-repeat="content in contents">
 <div class="news padding-5">
@@ -24,5 +27,7 @@
         </div>
     </div>
 </div>
+</div>
+
 </div>
 -->
