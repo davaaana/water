@@ -10,7 +10,7 @@ angular.module('core').controller('ProjectController', ['$rootScope', '$scope','
 
         $scope.homePage = 0;
         coreUserSrv.getContents('Төсөл хөтөлбөрүүд',$scope.homePage,10).then(function (res) {
-            $scope.contents = res.data;
+            $scope.pContents = res.data;
         });
     }
 ]);

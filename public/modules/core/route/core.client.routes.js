@@ -33,7 +33,7 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider', '$locatio
 			}).
 			state('home.project', {
 				url: '/project',
-				templateUrl: 'modules/core/views/law.html',
+				templateUrl: 'modules/core/views/project.html',
 				controller:'ProjectController'
 			}).
 			state('home.about', {
