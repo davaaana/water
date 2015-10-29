@@ -101,7 +101,9 @@ exports.deleteContents = function (req, res, next) {
                     var fs = require('fs');
                     fs.exists('./public' + rst.rows[0].image, function (exists) {
                         if (exists) {
-                            fs.unlink('./public' + rst.rows[0].image);
+                            fs.unlink('./public' + rst.rows[0].image, function (err) {
+
+                            });
                         }
                     });
                 }
@@ -190,8 +192,11 @@ exports.updateContent = [
                 if (rst.rows.length > 0 && req.files.file.name) {
                     var fs = require('fs');
                     fs.exists('./public' + rst.rows[0].image, function (exists) {
+                        console.log(exists);
                         if (exists) {
-                            fs.unlink('./public' + rst.rows[0].image);
+                            fs.unlink('./public' + rst.rows[0].image, function (err) {
+
+                            });
                         }
                     });
                 } else {
