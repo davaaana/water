@@ -8,6 +8,9 @@ angular.module('core').controller('CoreController', ['$rootScope', '$scope', '$h
             $scope.users = results
         });
 
+        $scope.formsubmit = function () {
+            alert('Хэрэглэгчийн нэр нууц үг буруу байна!');
+        }
         $scope.getContent = function (id) {
             window.location.href = '#!/index/more?id=' + id;
         };
