@@ -96,14 +96,17 @@ exports.deleteContents = function (req, res, next) {
             return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
         }
         if (rst.rows.length > 0) {
-            if(rst.rows[0].image && rst.rows[0].image != '') {
-                var fs = require('fs');
-                fs.exists('./public' + rst.rows[0].image, function (exists) {
-                    if (exists) {
-                        fs.unlink('./public' + rst.rows[0].image);
-                    }
-                });
-            }
+            try{
+                if(rst.rows[0].image && rst.rows[0].image != '') {
+                    var fs = require('fs');
+                    fs.exists('./public' + rst.rows[0].image, function (exists) {
+                        if (exists) {
+                            fs.unlink('./public' + rst.rows[0].image);
+                        }
+                    });
+                }
+            }catch(e){};
+
         } else {
             return res.status(400).json({message: 'Мэдээлэл бааз дээр алга байна'});
         }
@@ -183,18 +186,25 @@ exports.updateContent = [
                 console.log(err);
                 return res.status(400).json({message: 'Бааз дээр алдаа гарлаа'});
             }
-            if (rst.rows.length > 0) {
-                var fs = require('fs');
-                fs.exists('./public' + rst.rows[0].image, function (exists) {
-                    if (exists) {
-                        fs.unlink('./public' + rst.rows[0].image);
-                    }
-                });
-            } else {
-                return res.status(400).json({message: 'Мэдээлэл бааз дээр алга байна'});
+            try{
+                if (rst.rows.length > 0 && req.files.file.name) {
+                    var fs = require('fs');
+                    fs.exists('./public' + rst.rows[0].image, function (exists) {
+                        if (exists) {
+                            fs.unlink('./public' + rst.rows[0].image);
+                        }
+                    });
+                } else {
+                    return res.status(400).json({message: 'Мэдээлэл бааз дээр алга байна'});
+                }
             }
+            catch (e){}
         })
-        var imgPath = '/img/' + req.files.file.name;
+        var imgPath;
+        try{
+            imgPath = '/img/' + req.files.file.name;
+        }catch (e){imgPath = ''}
+
         var params = [content.title, content.content, imgPath, new Date(), req.user.username, content.category_id, req.params.id];
         var body = "UPDATE content SET title=$1, content=$2, image=$3, created_date=$4, \"user\"=$5,  category_id=$6 WHERE id = $7";
         req.pg.query(body, params, function (err, result) {
