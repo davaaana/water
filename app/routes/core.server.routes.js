@@ -11,7 +11,7 @@ module.exports = function(app) {
 	app.route('/').get(core.visitors,core.index);
 	app.route('/chartContent').get(u,a,core.chartContent);
 	app.route('/chartUser').get(u,a,core.chartUser);
-	app.route('/lastContents').get(u,a,core.lastContents);
+	app.route('/lastContents').get(core.lastContents);
 	app.route('/captcha').get(core.generateCaptcha);
 	app.route('/captcha/:text').post(core.checkCaptcha);
 	app.route('/feedback').post(core.feedback);
