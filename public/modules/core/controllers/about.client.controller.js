@@ -7,5 +7,10 @@ angular.module('core').controller('AboutController', ['$rootScope', '$scope','$h
             slide:6,
             home:1
         };
+
+        $scope.homePage = 0;
+        coreUserSrv.getContents('Бидний тухай',$scope.homePage,10).then(function (res) {
+            $scope.contents = res.data;
+        });
     }
 ]);

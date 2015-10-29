@@ -1,32 +1,15 @@
-<h3>Холбоо барих</h3>
-
-<form class="form-horizontal user-form f-left">
-    <input class="form-control no-border-radius width-220" id="feedName" data-ng-model="feed.name"
-           placeholder="Нэр">
-    <input class="form-control no-border-radius width-220" id="feedEmail" data-ng-model="feed.email"
-           placeholder="И-мэйл">
-    <input class="form-control no-border-radius width-220" id="feedPhone" data-ng-model="feed.phone"
-           placeholder="Утас">
-    <textarea class="form-control no-border-radius" id="feedDescription" data-ng-model="feed.description"
-              placeholder="Тайлбар" rows="15" cols="60"></textarea>
-
-    <div class="row">
-        <div class="col-lg-3">
-            <img src="/captcha" id="captcha">
+<div ng-repeat="content in contents">
+    <div class="news padding-5">
+        <div class="fl-left">
+            <img ng-src="{{content.image}}" class="news-img">
         </div>
-        <div class="col-lg-4">
-            <button data-ng-click="generateCaptcha()"
-                    class="re-captcha no-border-radius btn-default">
-                дахин код дуудах
-            </button>
+        <div>
+            <div class="content-title">
+                <span data-ng-click="getContent(content.id)">{{content.title}}</span>
+            </div>
+            <div class="font-gray">
+                {{content.created_date}}
+            </div>
         </div>
-
     </div>
-    <input type="text" class="form-control no-border-radius  width-220"
-           placeholder="Дээр харуулсан кодыг оруулна уу"
-           id="feedCaptcha"
-           data-ng-model="feed.captcha">
-
-    <input class="form-control no-border-radius btn-primary  width-220 txt-center " type="button"
-           data-ng-click="sendFeed(feed)" value="Илгээх">
-</form>
+</div>

@@ -1,1 +1,15 @@
-bidnii tuhai
+<div ng-repeat="content in contents">
+    <div class="news padding-5">
+        <div class="fl-left">
+            <img ng-src="{{content.image}}" class="news-img">
+        </div>
+        <div>
+            <div class="content-title">
+                <span data-ng-click="getContent(content.id)">{{content.title}}</span>
+            </div>
+            <div class="font-gray">
+                {{content.created_date}}
+            </div>
+        </div>
+    </div>
+</div>

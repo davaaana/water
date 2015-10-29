@@ -7,5 +7,10 @@ angular.module('core').controller('ContactController', ['$rootScope', '$scope','
             slide:6,
             home:1
         };
+
+        $scope.homePage = 0;
+        coreUserSrv.getContents('Холбоо барих',$scope.homePage,10).then(function (res) {
+            $scope.contents = res.data;
+        });
     }
 ]);
