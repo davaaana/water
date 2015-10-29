@@ -39,7 +39,7 @@ exports.chartContent = function (req, res, next) {
 };
 
 exports.lastContents = function (req, res, next) {
-    req.pg.query("select id, title, content, image, created_date, \"user\", category_id from content order by created_date limit 5", function (err, result) {
+    req.pg.query("select id, title, content, image, created_date, \"user\", category_id FROM content WHERE category_id in (SELECT id FROM category WHERE id != 39 AND id != 40) order by created_date limit 5", function (err, result) {
         if (err) {
             console.log(err);
             res.status(200).json({message: 'Бааз дээр алдаа гарлаа'});
@@ -120,6 +120,7 @@ exports.getFeedbacks = function (req, res) {
         }
     });
 };
+
 exports.sentFeed = function (req, res) {
     var mailOptions = {
         from: 'Ус хангамж,ариун цэвэрийн байгууламжийн мэдээллийн сан <davaana0210@gmail.com>' , // sender address

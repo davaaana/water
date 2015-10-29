@@ -9,6 +9,7 @@ angular.module('core').controller('MoreController', ['$rootScope', '$scope','$ht
         };
         $scope.pageNumber = [];
         $scope.page = 0;
+        $scope.sshow = false;
 
         console.log(location);
 
@@ -19,6 +20,7 @@ angular.module('core').controller('MoreController', ['$rootScope', '$scope','$ht
         }else if(location.$$search.search != ''){
             $scope.searchToText = location.$$search.search;
             coreUserSrv.searchContents(location.$$search.search).then(function (data,status) {
+                $scope.sshow = true;
                 if(data.status == 201)
                     $scope.resultText = data.data.message;
                 else{
@@ -27,6 +29,8 @@ angular.module('core').controller('MoreController', ['$rootScope', '$scope','$ht
                 }
 
             })
+        }else{
+            $scope.sshow = false;
         }
         if(location.$$search.more){
             alert('true')
