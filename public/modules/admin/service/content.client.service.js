@@ -34,7 +34,6 @@ angular.module('admin').factory('AdminContentSrv', function ($http) {
                     if(image[0]!=undefined){
                         formData.append('file', image[0]);
                     }
-                    console.log(formData);
 
                     return formData;
                 }
@@ -49,7 +48,6 @@ angular.module('admin').factory('AdminContentSrv', function ($http) {
                 url: ' /content/'+content.id,
                 headers: {'Content-Type': undefined},
                 transformRequest: function (data) {
-                    console.log(data);
                     var formData = new FormData();
                     formData.append('content', angular.toJson(content));
                     formData.append('file', image[0]);

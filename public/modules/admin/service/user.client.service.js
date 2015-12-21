@@ -28,7 +28,6 @@ angular.module('admin').factory('AdminUserSrv', function ($http) {
                 url: ' /updateUser',
                 headers: {'Content-Type': undefined},
                 transformRequest: function (data) {
-                    console.log(data);
                     var formData = new FormData();
                     formData.append('user', angular.toJson(user));
                     formData.append('file', image[0]);

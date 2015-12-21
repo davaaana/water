@@ -37,7 +37,7 @@ exports.upload = [
             return number;
         };
         var time = dt.getFullYear() + '-' + twodigit((dt.getMonth() + 1)) + '-' + twodigit(dt.getDate()) + ' ' + twodigit(dt.getHours()) + ':' + twodigit(dt.getMinutes()) + ':' + twodigit(dt.getSeconds());
-        req.cassandra.execute("insert into file_manager(id,static,created_date,store_image,image,thumb) values (now(),1,'" + time + "','/img/" + req.files.file0.name + "','/img/" + req.files.file0.originalname + "','/img/" + req.files.file0.originalname + "')", function (err) {
+        req.pg.query("insert into file_manager(id,name,created_date,path) values (now(),'/img/" + req.files.file0.name + "','"+time+"','/img')", function (err) {
             if (!err) {
                 res.json(req.files);
             } else {
@@ -51,7 +51,7 @@ exports.upload = [
  * @return json буцаана
  */
 exports.list = function (req, res) {
-    req.cassandra.execute('select id,created_date,store_image,image,thumb from file_manager', function (err, result) {
+    req.pg.query('select id,created_date,name,path from file_manager', function (err, result) {
         if (!err) {
             if (result.rows.length > 0) {
                 res.json(result.rows);
@@ -72,7 +72,7 @@ res.status(400).json({message: 'File олдсонгүй',type: 0 });
  * @return json буцаана
  */
 exports.delete = function (req, res) {
-    req.cassandra.execute('DELETE FROM file_manager WHERE static=1 and id=' + req.param('id'), function (err) {
+    req.pg.query('DELETE FROM file_manager WHERE static=1 and id=' + req.param('id'), function (err) {
         if (!err) {
             res.json({message: 'Амжилттай устгагдлаа',type: 1});
         } else {
@@ -81,50 +81,3 @@ exports.delete = function (req, res) {
     });
 };
 
-/**
- * Файл татах
- * @param file
- * @return json буцаана
- */
-exports.download = function (req, res) {
-    var file = req.params.file,
-        path = __dirname + '/../../public/tmp/' + file;
-
-    var cqlUpdate = 'UPDATE counters SET count = count + 1 WHERE name=\'' + file + '\'';
-    req.cassandra.execute(cqlUpdate, function (err) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            res.download(path);
-        }
-    });
-};
-
-/**
- * Утасны API татах
- * @param id
- * @return file
- */
-exports.mobileFileDownload = function (req, res) {
-    var file;
-
-    if (req.params.id == 'playstore') {
-        file = 'vatps-android.apk';
-    } else {
-        file = 'vatps-android.apk';
-    }
-
-    var cqlUpdate = 'UPDATE counters SET count = count + 1 WHERE name=\'' + file + '\'';
-    req.cassandra.execute(cqlUpdate, function (err) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            return res.redirect('https://dl.dropbox.com/s/gi6ay9p12170fcd/vatps-android%20v1.apk');
-        }
-    });
-
-};

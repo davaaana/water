@@ -32,7 +32,7 @@
                 <td class="center-td">{{feed.res == true ? 'Хариу явуулсан' : 'Хариу явуулаагүй'}}</td>
                 <td class="center-td">{{feed.res_description}}</td>
                 <td class="center-td">
-                    <button data-ng-click="sendModalShow(feed)" class="btn btn-default btn-sm">Засах</button>
+                    <button data-ng-click="sendModalShow(feed)" class="btn btn-default btn-sm">Хариулах</button>
                 </td>
                 <td class="center-td">
                     <button data-ng-click="deleteContent(content.id)" class="btn btn-danger btn-sm">Устгах</button>
@@ -49,7 +49,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 style="color: #000000">{{title_edit}}</h4>
+                <h4 style="color: #000000">Санал хүсэлтэнд хариу өгөх</h4>
             </div>
             <div class="modal-body">
                 <div>
@@ -58,7 +58,7 @@
                               placeholder="Хариулт" cols="91"></textarea>
                 </div>
                 <center>
-                    <button data-ng-click="sendAnswer(answer)" class="btn btn-primary">Засах
+                    <button data-ng-click="sendAnswer(answer)" class="btn btn-primary">Хариулах
                     </button>
                 </center>
             </div>

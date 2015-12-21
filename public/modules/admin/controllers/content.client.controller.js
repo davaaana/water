@@ -32,7 +32,6 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
                 for(var i = 0;i < response.count/5;i++){
                     $scope.pageNumber.push(i);
                 }
-                console.log($scope.pageNumber);
             })
         }
 
