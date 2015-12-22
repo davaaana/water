@@ -42,6 +42,25 @@ angular.module('admin').factory('AdminContentSrv', function ($http) {
             });
             return promise;
         },
+        uploadImage: function (image) {
+            var promise = $http({
+                method: 'POST',
+                url: ' /api/v1/filemanager',
+                headers: {'Content-Type': undefined},
+                transformRequest: function (data) {
+                    var formData = new FormData();
+                    if(image[0]!=undefined){
+                        for(var i in image){
+                            formData.append('file', image[i]);
+                        }
+                    }
+                    return formData;
+                }
+            }).success(function (err,response) {
+                return response;
+            });
+            return promise;
+        },
         updateContent: function (content,image) {
             var promise = $http({
                 method: 'PUT',

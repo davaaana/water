@@ -2,6 +2,7 @@
 
 var errorHandler = require('./errors.server.controller');
 var multer = require('multer');
+var async = require('async');
 
 /**
  * Хуулсан зурагнуудыг бааз дээр хадгалах
@@ -13,7 +14,7 @@ exports.upload = [
         dest: './public/img/',
         limits: {
             fieldNameSize: 1000,
-            files: 1,
+            files: 10,
             fields: 5
         },
         rename: function (fieldname, filename) {
@@ -29,21 +30,34 @@ exports.upload = [
         onFileUploadComplete: function () {
         }
     }), function (req, res) {
-        var dt = new Date();
-        var twodigit = function (number) {
-            if (number < 10) {
-                number = '0' + number;
-            }
-            return number;
-        };
-        var time = dt.getFullYear() + '-' + twodigit((dt.getMonth() + 1)) + '-' + twodigit(dt.getDate()) + ' ' + twodigit(dt.getHours()) + ':' + twodigit(dt.getMinutes()) + ':' + twodigit(dt.getSeconds());
-        req.pg.query("insert into file_manager(id,name,created_date,path) values (now(),'/img/" + req.files.file0.name + "','"+time+"','/img')", function (err) {
-            if (!err) {
-                res.json(req.files);
-            } else {
+        console.log(req.files);
+        async.each(req.files.file, function (data,callback) {
+                console.log(data);
+                var dt = new Date();
+                var twodigit = function (number) {
+                    if (number < 10) {
+                        number = '0' + number;
+                    }
+                    return number;
+                };
+                var time = dt.getFullYear() + '-' + twodigit((dt.getMonth() + 1)) + '-' + twodigit(dt.getDate()) + ' ' + twodigit(dt.getHours()) + ':' + twodigit(dt.getMinutes()) + ':' + twodigit(dt.getSeconds());
+                var id = new Date().getTime();
+                req.pg.query("insert into file_manager(\"image\",\"store_image\",created_date,\"thumb\") values ('/img/" + data.name + "','/img/" + data.name + "',now(),'public/img')", function (err) {
+                    if (!err) {
+                        callback(null);
+                    } else {
+                        callback(null);
+                        console.log(err);
+                    }
+                });
+        }, function (err) {
+            if(err){
                 return res.status(400).json({message: 'Амжилтгүй боллоо',type: 0});
+            }else{
+                res.json(req.files);
             }
-        });
+        })
+
     }];
 
 /**
@@ -51,7 +65,7 @@ exports.upload = [
  * @return json буцаана
  */
 exports.list = function (req, res) {
-    req.pg.query('select id,created_date,name,path from file_manager', function (err, result) {
+    req.pg.query('select id,created_date,\"image\",\"store_image\",\"thumb\" from file_manager', function (err, result) {
         if (!err) {
             if (result.rows.length > 0) {
                 res.json(result.rows);

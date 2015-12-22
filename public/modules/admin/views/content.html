@@ -4,6 +4,7 @@
         <div class="title">
             Мэдээ мэдээллийн тохиргоо
         </div>
+        <button data-ng-click="fileModal()" class="add btn btn-primary btn-sm">Зураг оруулах</button>
         <button data-ng-click="addModalContent()" class="add btn btn-primary btn-sm">Мэдээлэл нэмэх</button>
     </div>
 
@@ -114,6 +115,40 @@
                     <button data-ng-click="updateContent()" data-ng-show="updateBtn" class="btn btn-primary">Засах
                     </button>
                     <button data-ng-click="createContent()" data-ng-hide="updateBtn" class="btn btn-primary">Нэмэх
+                    </button>
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--file upload-->
+
+
+<div id="file" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 style="color: #000000">{{title_edit}}</h4>
+            </div>
+            <div class="modal-body">
+                <div style="color:#000000">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            Зураг
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="file" multiple accept="image/*" file-upload>
+                        </div>
+                    </div>
+
+                </div>
+                <center>
+                    <button data-ng-click="uploadImage()" class="btn btn-primary">Нэмэх
                     </button>
                 </center>
             </div>

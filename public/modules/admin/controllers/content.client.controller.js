@@ -50,10 +50,19 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
             $('#content').modal('show');
         }
 
+        $scope.fileModal = function () {
+            $scope.content = {};
+            $scope.title_edit = 'Зураг оруулах'
+            $scope.content = content;
+            $scope.updateBtn = true;
+            $('#file').modal('show');
+        }
+
         $scope.updateContent = function () {
             ContentSrv.updateContent($scope.content,$scope.files).then(function (response) {
                 if(response.status == 200){
                     $scope.getContents();
+                    $scope.files = [];
                     $('#content').modal('hide');
                     $rootScope.notifyMessage = {message:response.data.message,type:1};
                 }else{
@@ -63,10 +72,24 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
             });
         }
 
+        $scope.uploadImage = function () {
+            ContentSrv.uploadImage($scope.files).then(function (res) {
+                if(res.status == 200){
+                    $scope.files = [];
+                    $('#file').modal('hide');
+                    $rootScope.notifyMessage = {massge:'Амжилттай хадгаллаа',type:1};
+                }else{
+                    alert(response.data.message);
+                    $rootScope.notifyMessage = {message:res.data.message,type:0};
+                }
+            })
+        }
+
         $scope.createContent = function () {
             ContentSrv.createContent($scope.content,$scope.files).then(function (response) {
                 if(response.status == 200){
                     $scope.getContents();
+                    $scope.files = [];
                     $('#content').modal('hide');
                     $rootScope.notifyMessage = {message:response.data.message,type:1};
                 }else{
