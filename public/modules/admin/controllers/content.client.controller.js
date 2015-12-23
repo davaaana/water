@@ -8,7 +8,9 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
             $scope.content = {};
             $scope.title_edit='Нэмэх';
             $scope.updateBtn = false;
+            $('#contentss').css('width','960px');
             $('#content').modal('show');
+            console.log($('#contentss'));
         }
 
         $scope.getCategories = function () {
@@ -53,8 +55,6 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
         $scope.fileModal = function () {
             $scope.content = {};
             $scope.title_edit = 'Зураг оруулах'
-            $scope.content = content;
-            $scope.updateBtn = true;
             $('#file').modal('show');
         }
 
@@ -77,7 +77,7 @@ angular.module('admin').controller('ContentController', ['$rootScope', '$scope',
                 if(res.status == 200){
                     $scope.files = [];
                     $('#file').modal('hide');
-                    $rootScope.notifyMessage = {massge:'Амжилттай хадгаллаа',type:1};
+                    $rootScope.notifyMessage = {message:'Амжилттай хадгаллаа',type:1};
                 }else{
                     alert(response.data.message);
                     $rootScope.notifyMessage = {message:res.data.message,type:0};

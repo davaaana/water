@@ -30,9 +30,8 @@ exports.upload = [
         onFileUploadComplete: function () {
         }
     }), function (req, res) {
-        console.log(req.files);
-        async.each(req.files.file, function (data,callback) {
-                console.log(data);
+        if(Array.isArray(req.files.file)){
+            async.each(req.files.file, function (data,callback) {
                 var dt = new Date();
                 var twodigit = function (number) {
                     if (number < 10) {
@@ -50,14 +49,31 @@ exports.upload = [
                         console.log(err);
                     }
                 });
-        }, function (err) {
-            if(err){
-                return res.status(400).json({message: 'Амжилтгүй боллоо',type: 0});
-            }else{
-                res.json(req.files);
-            }
-        })
-
+            }, function (err) {
+                if(err){
+                    return res.status(400).json({message: 'Амжилтгүй боллоо',type: 0});
+                }else{
+                    res.json(req.files);
+                }
+            })
+        }else{
+            var dt = new Date();
+            var twodigit = function (number) {
+                if (number < 10) {
+                    number = '0' + number;
+                }
+                return number;
+            };
+            var time = dt.getFullYear() + '-' + twodigit((dt.getMonth() + 1)) + '-' + twodigit(dt.getDate()) + ' ' + twodigit(dt.getHours()) + ':' + twodigit(dt.getMinutes()) + ':' + twodigit(dt.getSeconds());
+            var id = new Date().getTime();
+            req.pg.query("insert into file_manager(\"image\",\"store_image\",created_date,\"thumb\") values ('/img/" + req.files.file.name + "','/img/" + req.files.file.name + "',now(),'public/img')", function (err) {
+                if (!err) {
+                    res.json(req.files);
+                } else {
+                    return res.status(400).json({message: 'Амжилтгүй боллоо',type: 0});
+                }
+            });
+        }
     }];
 
 /**
