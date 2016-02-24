@@ -31,6 +31,17 @@ angular.module('core').controller('HomeController', ['$rootScope', '$scope','$ht
             $scope.$parent.searchContent(text);
         }
 
+        $scope.getImageSrc = function (index) {
+            //var imgJPG = $scope.postContents[index].content.find('img');
+            var img = angular.element($scope.lastContents[index].content).find('img').attr("src");
+
+            if (img) {
+                $scope.lastContents[index].image = img;
+            } else {
+                $scope.lastContents[index].image = '/img/not-image.gif';
+            }
+        }
+
         coreUserSrv.getContents('Онцлох мэдээ',0,10).then(function (res) {
             $scope.postContents = res.data;
         });
