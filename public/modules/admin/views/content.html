@@ -25,8 +25,8 @@
             <tbody>
             <tr data-ng-repeat="content in contents" style="height: 70px;overflow: hidden">
                 <td class="center-td"><img src="{{content.image}}" style="width: 50px;height: 50px"></td>
-                <td class="center-td">{{content.title | limitTo:200}}</td>
-                <td class="center-td" ng-bind-html="content.content | limitTo:200"></td>
+                <td>{{content.title | limitTo:200}}</td>
+                <td  ng-bind-html="content.content | limitTo:200"></td>
                 <td class="center-td">{{getCategoryName(content.category_id)}}</td>
                 <td class="center-td">{{content.created_date | date: 'yyyy/MM/dd HH:mm:ss'}}</td>
                 <td class="center-td">{{content.user}}</td>
@@ -40,11 +40,14 @@
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="2">Нийт агуулга: {{totalCount}}</td>
-                <td colspan="6" style="text-align: center">
+
+                <td colspan="12" style="text-align: center;">
+                    Нийт агуулга: {{totalCount}}
                     <nav>
                         <ul class="pagination" data-ng-repeat="p in pageNumber">
-                            <li data-ng-click="pageChange(p)">{{p+1}}</li>
+                            <li ng-class="page==p?active:null" data-ng-click="pageChange(p)">
+                                <a href="#">{{p+1}}</a>
+                               </li>
                         </ul>
                     </nav>
                 </td>

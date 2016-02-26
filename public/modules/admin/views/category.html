@@ -20,10 +20,10 @@
             <tr data-ng-repeat="category in categories">
                 <td class="center-td">{{category.id}}</td>
                 <td>{{category.name}}</td>
-                <td class="center-td">
+                <td class="center-td" style="text-align: center">
                     <button data-ng-click="updateModalCategory(category)"  class="btn btn-default btn-sm">Засах</button>
                 </td>
-                <td class="center-td">
+                <td class="center-td" style="text-align: center">
                     <button data-ng-click="deleteCategory(category.id)"  class="btn btn-danger btn-sm">Устгах</button>
                 </td>
             </tr>

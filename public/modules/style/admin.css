@@ -1,21 +1,28 @@
+@font-face {
+    font-family: 'Roboto Condenced';
+    src: url('fonts/RobotoCondensed-Regular.ttf');
+url('fonts/RobotoCondensed-Regular.ttf') format('truetype')
+font-weight: 200;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Roboto Condenced";
     color: white;
     font-weight: 300;
 }
 
 body ::-webkit-input-placeholder {
     /* WebKit browsers */
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Roboto Condenced";
     color: white;
     font-weight: 300;
 }
 
 body :-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Roboto Condenced";
     color: white;
     opacity: 1;
     font-weight: 300;
@@ -23,7 +30,7 @@ body :-moz-placeholder {
 
 body ::-moz-placeholder {
     /* Mozilla Firefox 19+ */
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Roboto Condenced";
     color: white;
     opacity: 1;
     font-weight: 300;
@@ -31,7 +38,7 @@ body ::-moz-placeholder {
 
 body :-ms-input-placeholder {
     /* Internet Explorer 10+ */
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Roboto Condenced";
     color: white;
     font-weight: 300;
 }
